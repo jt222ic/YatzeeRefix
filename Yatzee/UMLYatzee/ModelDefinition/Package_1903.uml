@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="18992fe6-d2c5-429c-aa5a-12290a708135"
+  name="Yatzee"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="3b7cd0ed-d079-403a-b62b-01477b7582c7"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DYatzee"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ead33528-65e0-4f55-adf2-0b6bcb010df2"
+        LastKnownName="Controller"
+        LastKnownLocation="Package1_1903.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6e9e21f1-0029-4cd8-85bc-9dbdbaad1f27"
+        LastKnownName="View"
+        LastKnownLocation="Package2_1903.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="bb89f57a-75f1-4e46-9bcd-b27819ab75a0"
+        LastKnownName="Model"
+        LastKnownLocation="Package3_1903.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

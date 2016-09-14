@@ -1,0 +1,23 @@
+c:\users\jt222ic\documents\visual studio 2013\Projects\Yatzee\Yatzee\bin\Debug\Yatzee.exe.config
+c:\users\jt222ic\documents\visual studio 2013\Projects\Yatzee\Yatzee\obj\Debug\Yatzee.csprojResolveAssemblyReference.cache
+c:\users\jt222ic\documents\visual studio 2013\Projects\Yatzee\Yatzee\bin\Debug\Yatzee.exe
+c:\users\jt222ic\documents\visual studio 2013\Projects\Yatzee\Yatzee\bin\Debug\Yatzee.pdb
+c:\users\jt222ic\documents\visual studio 2013\Projects\Yatzee\Yatzee\obj\Debug\Yatzee.exe
+c:\users\jt222ic\documents\visual studio 2013\Projects\Yatzee\Yatzee\obj\Debug\Yatzee.pdb
+C:\Users\jt222ic\Desktop\Yatzee\Yatzee\Yatzee\bin\Debug\Yatzee.exe.config
+C:\Users\jt222ic\Desktop\Yatzee\Yatzee\Yatzee\obj\Debug\Yatzee.exe
+C:\Users\jt222ic\Desktop\Yatzee\Yatzee\Yatzee\obj\Debug\Yatzee.pdb
+C:\Users\jt222ic\Desktop\Yatzee\Yatzee\Yatzee\bin\Debug\Yatzee.exe
+C:\Users\jt222ic\Desktop\Yatzee\Yatzee\Yatzee\bin\Debug\Yatzee.pdb
+C:\Users\jt222ic\Desktop\Yatzee\Yatzee\Yatzee\obj\Debug\Yatzee.csprojResolveAssemblyReference.cache
+C:\Users\jt222ic.LNU\Desktop\Yatzee\Yatzee\Yatzee\bin\Debug\Yatzee.exe.config
+C:\Users\jt222ic.LNU\Desktop\Yatzee\Yatzee\Yatzee\obj\Debug\Yatzee.exe
+C:\Users\jt222ic.LNU\Desktop\Yatzee\Yatzee\Yatzee\obj\Debug\Yatzee.pdb
+C:\Users\jt222ic.LNU\Desktop\Yatzee\Yatzee\Yatzee\bin\Debug\Yatzee.exe
+C:\Users\jt222ic.LNU\Desktop\Yatzee\Yatzee\Yatzee\bin\Debug\Yatzee.pdb
+C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\bin\Debug\Yatzee.exe.config
+C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\obj\Debug\Yatzee.exe
+C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\obj\Debug\Yatzee.pdb
+C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\obj\Debug\Yatzee.csprojResolveAssemblyReference.cache
+C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\bin\Debug\Yatzee.exe
+C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\bin\Debug\Yatzee.pdb
