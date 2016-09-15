@@ -46,11 +46,13 @@ namespace Yatzee.View
         public void DisplayRoll(List<int> ListaOverDice, bool Diceroll)
         {
             Console.Clear();
-            
+
+            int DifferentDice = 0;
            
             foreach (int dice in ListaOverDice)
             {
-                System.Console.WriteLine("Dice: {0}", dice);
+                DifferentDice++;
+                System.Console.WriteLine("Dice {1}: {0}", dice, DifferentDice);
             }
             if (Diceroll)
             {

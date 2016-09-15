@@ -13,7 +13,15 @@ namespace Yatzee.Controller
         {
             User Userview = new User();
 
-            Userview.Register();
+
+
+            var input = Userview.GetOptions();
+
+            if(input == User.Options.Play)
+            {
+               //Userview.Register();
+               Userview.MainMenu();
+            }
         }
 
 

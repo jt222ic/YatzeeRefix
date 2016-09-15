@@ -43,8 +43,6 @@ namespace Yatzee.View
                     {
                         case 0:
                             return false;
-
-
                         case 1:
                             PlayerValue = 1;
                             player.GetOne = Rules.AddUpDice(ListaAvRoll, PlayerValue);
@@ -80,7 +78,6 @@ namespace Yatzee.View
                             LowerSection();
                             break;
                     }
-                    
                 }
                 catch
                 {

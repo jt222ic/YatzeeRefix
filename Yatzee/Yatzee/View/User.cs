@@ -18,7 +18,7 @@ namespace Yatzee.View
         List<int> ListaAvRoll;
         IReadOnlyCollection<Player> ListOfPlayers;
         private const char PLAY_KEY = 'p';
-
+        
         bool perforReRoll = false;
         bool RerollView = false;
         int Tossthree = 0;
@@ -26,16 +26,33 @@ namespace Yatzee.View
         int choice;
 
 
+
+        public enum Options
+        {
+            Play
+        }
+
+
+        public  Options GetOptions()
+        {
+            switch (System.Console.In.Read())
+            {
+                case PLAY_KEY:
+                    return Options.Play;
+
+            }
+            return Options.Play;
+
+        }
         public User()
         {
             roll = new Dice();
             show = new ViewStatus();
             Rules = new DiceRule(show);
-            PlayerList.Add(player = new Player("Human", ListaAvRoll));    
+            PlayerList.Add(player = new Player("Human", ListaAvRoll));
         }
         public void MainMenu()
         {
-           
             do
             {
                 try
@@ -65,49 +82,54 @@ namespace Yatzee.View
                 }
             }
             while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-            
+
         }
         public void Register()
         {
-
             do
             {
-                show.Register();
-                string Registration = System.Console.ReadLine();
-                
-
-                int RegisterAlt = int.Parse(Registration);
-
-                switch (RegisterAlt)
+                try
                 {
-                    case 0:
-                        break;
-                    case 1:
-                      PlayerList.Add(player = new Player(show.ReturnInfo(), ListaAvRoll));
-                        break;
-                    case 2:
-                     
-                        break;
-                    case 3:
-                        RemovePlayer();
-                        break;
-                    case 4:
-                        show.CompactList(DAL.getMemberList());
-                        break;
-                    case 5:
-                        DAL.SaveToFile();
-                        break;
+                    show.Register();
+                    string Registration = System.Console.ReadLine();
 
-                    case 6:
-                        PlayerList = DAL.Initialize();
-                        break;
-                    case 7:
-                         this.MainMenu();
-                        break;
+                    int RegisterAlt = int.Parse(Registration);
+
+                    switch (RegisterAlt)
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            PlayerList.Add(player = new Player(show.ReturnInfo(), ListaAvRoll));
+                            break;
+                        case 2:
+
+                            break;
+                        case 3:
+                            RemovePlayer();
+                            break;
+                        case 4:
+                            show.CompactList(DAL.getMemberList());
+                            break;
+                        case 5:
+                            DAL.SaveToFile();
+                            break;
+
+                        case 6:
+                            PlayerList = DAL.Initialize();
+                            break;
+                        case 7:
+                           return;
+                    }
                 }
+                catch
+                {
+                    show.Catch();
+                }
+                
             }
             while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-           
+
         }
 
         public void RemovePlayer()
@@ -132,9 +154,8 @@ namespace Yatzee.View
         }
 
         public void ChangePlayer()
-        { 
+        {
             ListOfPlayers = DAL.getMemberList();
-          
             show.CompactList(ListOfPlayers);
             choice = int.Parse(Console.ReadLine());
             if (choice == 0)
@@ -142,7 +163,6 @@ namespace Yatzee.View
                 return;
             }
             choice--;
-            
             player = PlayerList.ElementAt(choice);
         }
 

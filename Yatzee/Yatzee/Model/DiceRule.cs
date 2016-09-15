@@ -41,8 +41,6 @@ namespace Yatzee.Model
             }
             return Sum;
         }
-
-
         public int ThreeOfAKind(List<int> Dice)
         {
             Sum = 0;
