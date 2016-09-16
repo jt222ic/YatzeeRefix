@@ -34,7 +34,7 @@ namespace Yatzee.View
             {
                 try
                 {
-                    string choices = System.Console.ReadLine();
+                    string choices = System.Console.ReadLine();  // view
                     int PlayerValue;
                     int RuleChoice = int.Parse(choices);
                     player.TOTALSCORE = Rules.TotalScore;

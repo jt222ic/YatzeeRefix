@@ -15,14 +15,14 @@ namespace Yatzee.Model
         public int BonusSum;
         public int playerValue;
         public int BonusPoint;
-        ViewStatus show;
+        
         public bool m_Yatzee = false;
         public bool m_FourOfAKind = false;
         public bool m_ThreeOfAKind = false;
-        public DiceRule(ViewStatus view)
+        public DiceRule()
         {
             
-            show = view;
+            
         }
         public int AddUpDice(List<int> ListOfDice, int PlayerSelectValues)
         {

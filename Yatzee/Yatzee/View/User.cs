@@ -31,8 +31,6 @@ namespace Yatzee.View
         {
             Play
         }
-
-
         public  Options GetOptions()
         {
             switch (System.Console.In.Read())
@@ -48,17 +46,15 @@ namespace Yatzee.View
         {
             roll = new Dice();
             show = new ViewStatus();
-            Rules = new DiceRule(show);
+            Rules = new DiceRule();
             PlayerList.Add(player = new Player("Human", ListaAvRoll));
         }
         public void MainMenu()
         {
-            do
-            {
                 try
                 {
                     show.DisplayFirstPage();
-                    string choices = System.Console.ReadLine();
+                    string choices = show.GetInput(); // Hämtar input button från view 
                     int Choice = int.Parse(choices);
 
                     switch (Choice)
@@ -80,19 +76,16 @@ namespace Yatzee.View
                 {
                     show.Catch();
                 }
-            }
-            while (Console.ReadKey(true).Key != ConsoleKey.Escape);
 
         }
         public void Register()
         {
-            do
-            {
+           
+            
                 try
                 {
                     show.Register();
-                    string Registration = System.Console.ReadLine();
-
+                    string Registration = show.GetInput();
                     int RegisterAlt = int.Parse(Registration);
 
                     switch (RegisterAlt)
@@ -118,8 +111,6 @@ namespace Yatzee.View
                         case 6:
                             PlayerList = DAL.Initialize();
                             break;
-                        case 7:
-                           return;
                     }
                 }
                 catch
@@ -128,9 +119,6 @@ namespace Yatzee.View
                 }
                 
             }
-            while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-
-        }
 
         public void RemovePlayer()
         {
@@ -138,7 +126,7 @@ namespace Yatzee.View
             {
                 ListOfPlayers = DAL.getMemberList();
                 show.CompactList(ListOfPlayers);
-                choice = int.Parse(Console.ReadLine());
+                choice = int.Parse(show.GetInput());
                 if (choice == 0)
                 {
                     return;
@@ -171,13 +159,12 @@ namespace Yatzee.View
             Tossthree = 0;
             bool RerollView = true;
             show.DisplayRoll(ListaAvRoll, RerollView);
-            do
-            {
+           
                 try
                 {
                     ViewYatzee YatzeeList = new ViewYatzee(Rules, player, show, ListaAvRoll);
                     show.showDiceAlternative(player, YatzeeList);
-                    string NewReRoll = System.Console.ReadLine();
+                    string NewReRoll = show.GetInput();
                     int DiceChoice = int.Parse(NewReRoll);
 
                     switch (DiceChoice)
@@ -228,7 +215,6 @@ namespace Yatzee.View
                     show.Catch();
                 }
             }
-            while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-        }
+         
     }
 }

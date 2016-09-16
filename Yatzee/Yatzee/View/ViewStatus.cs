@@ -10,6 +10,10 @@ namespace Yatzee.View
     class ViewStatus
     {
 
+        public string GetInput()
+        {
+            return System.Console.ReadLine();
+        }
         public void DisplayFirstPage()
         {
             System.Console.Clear();
