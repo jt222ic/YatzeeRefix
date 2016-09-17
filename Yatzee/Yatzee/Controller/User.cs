@@ -25,8 +25,6 @@ namespace Yatzee.View
         int dicenumber;
         int choice;
 
-
-
         public enum Options
         {
             Play
@@ -37,7 +35,6 @@ namespace Yatzee.View
             {
                 case PLAY_KEY:
                     return Options.Play;
-
             }
             return Options.Play;
 
@@ -54,12 +51,11 @@ namespace Yatzee.View
                 try
                 {
                     show.DisplayFirstPage();
-                    string choices = show.GetInput(); // Hämtar input button från view 
+                    string choices = show.GetInput();                                      // Hämtar input button från view 
                     int Choice = int.Parse(choices);
 
                     switch (Choice)
                     {
-
                         case 0:
                             return;
 
@@ -71,12 +67,10 @@ namespace Yatzee.View
                             break;
                     }
                 }
-
                 catch
                 {
                     show.Catch();
                 }
-
         }
         public void Register()
         {
@@ -117,7 +111,6 @@ namespace Yatzee.View
                 {
                     show.Catch();
                 }
-                
             }
 
         public void RemovePlayer()
@@ -140,12 +133,11 @@ namespace Yatzee.View
                 show.Catch();
             }
         }
-
         public void ChangePlayer()
         {
             ListOfPlayers = DAL.getMemberList();
             show.CompactList(ListOfPlayers);
-            choice = int.Parse(Console.ReadLine());
+            choice = int.Parse(show.GetInput());
             if (choice == 0)
             {
                 return;
@@ -153,7 +145,6 @@ namespace Yatzee.View
             choice--;
             player = PlayerList.ElementAt(choice);
         }
-
         public void ChoiceOfReRoll()
         {
             Tossthree = 0;
@@ -162,11 +153,10 @@ namespace Yatzee.View
            
                 try
                 {
-                    ViewYatzee YatzeeList = new ViewYatzee(Rules, player, show, ListaAvRoll);
-                    show.showDiceAlternative(player, YatzeeList);
+                    YatzeeController YatzeeList = new YatzeeController(Rules, player, show, ListaAvRoll);
+                    show.showDiceAlternative(player);
                     string NewReRoll = show.GetInput();
                     int DiceChoice = int.Parse(NewReRoll);
-
                     switch (DiceChoice)
                     {
                         case 0:
@@ -203,7 +193,6 @@ namespace Yatzee.View
                                 player.HoldState = true;
                             }
                             break;
-
                         case 7:
 
                             YatzeeList.YatzeeScoreSheet();

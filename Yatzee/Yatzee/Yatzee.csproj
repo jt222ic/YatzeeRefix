@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\UserController.cs" />
-    <Compile Include="View\User.cs" />
+    <Compile Include="Controller\User.cs" />
     <Compile Include="Model\DAL.cs" />
     <Compile Include="Model\Dice.cs" />
     <Compile Include="Model\DiceRule.cs" />
@@ -50,7 +50,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\ViewStatus.cs" />
-    <Compile Include="View\ViewYatzee.cs" />
+    <Compile Include="Controller\YatzeeController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

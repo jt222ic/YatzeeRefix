@@ -30,7 +30,7 @@ namespace Yatzee.View
         {
             System.Console.WriteLine("!!!!!You get {0} !!!!!!", rule.Sum);
         }
-        public void showDiceAlternative(Player player, ViewYatzee YatzeeList)
+        public void showDiceAlternative(Player player)
         {
             if (!player.HoldState)
             {

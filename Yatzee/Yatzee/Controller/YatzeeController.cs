@@ -8,21 +8,18 @@ using Yatzee.Model;
 
 namespace Yatzee.View
 {
-    class ViewYatzee
+    class YatzeeController 
     {
         DiceRule Rules;
         Player player;
-        User user = new User();
-
         ViewStatus show;
         List<int> ListaAvRoll;
 
-        public ViewYatzee(DiceRule Rules, Player player, ViewStatus show, List<int> ListaAvRoll)
+        public YatzeeController(DiceRule Rules, Player player, ViewStatus show, List<int> ListaAvRoll)
         {
             this.ListaAvRoll = ListaAvRoll;
             this.Rules = Rules;
             this.player = player;
-
             this.show = show;
 
         }
@@ -30,11 +27,10 @@ namespace Yatzee.View
         public bool YatzeeScoreSheet()
         {
             show.DisplayScore(DAL.getMemberList());
-            do
-            {
+           
                 try
                 {
-                    string choices = System.Console.ReadLine();  // view
+                    string choices = show.GetInput();   // view
                     int PlayerValue;
                     int RuleChoice = int.Parse(choices);
                     player.TOTALSCORE = Rules.TotalScore;
@@ -45,7 +41,7 @@ namespace Yatzee.View
                             return false;
                         case 1:
                             PlayerValue = 1;
-                            player.GetOne = Rules.AddUpDice(ListaAvRoll, PlayerValue);
+                            player.GetOne = Rules.AddUpDice(ListaAvRoll, PlayerValue);                                         
                             break;
                         case 2:
                             PlayerValue = 2;
@@ -85,17 +81,11 @@ namespace Yatzee.View
                 }
                 show.showResult(Rules);
                 return true;
-            }
-            while
-            (Console.ReadKey(true).Key != ConsoleKey.Escape);
-           
-
         }
         public void LowerSection()
         {
-            do
-            {
-                string lowerchoices = System.Console.ReadLine();
+            
+                string lowerchoices = show.GetInput();
                 int LowerChoice = int.Parse(lowerchoices);
                 player.GetBonus = Rules.Bonus();
 
@@ -135,9 +125,6 @@ namespace Yatzee.View
                 }
                 show.showResult(Rules);
             }
-            while
-            (Console.ReadKey(true).Key != ConsoleKey.Escape);
-        }
     }
 }
 
