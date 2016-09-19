@@ -10,10 +10,21 @@ namespace Yatzee.View
     class ViewStatus
     {
 
-        public string GetInput()
+        public string GetInput()                                         // Controller reads lines from view class, Console belongs to view class. For Controller
         {
             return System.Console.ReadLine();
         }
+        public bool returnInput()
+        {
+            if(Console.ReadKey(true).Key != ConsoleKey.Escape)                            // reads inputKey if not on Key Escape then continue looping the switch case. For controller
+            {
+                return true;
+            }
+            return false;
+        }
+
+    // the rest below reads from Model and some dependencies on model
+
         public void DisplayFirstPage()
         {
             System.Console.Clear();
@@ -22,15 +33,15 @@ namespace Yatzee.View
             System.Console.WriteLine("==========================================");
         }
 
-        public void showLowerSection()
+        public void showLowerSection()                           // write out lower section of brackets Yatzee
         {
             System.Console.WriteLine("LowerSection");
         }
-        public void showResult(DiceRule rule)
+        public void showResult(DiceRule rule)                                  // summarise result of yatzee score
         {
             System.Console.WriteLine("!!!!!You get {0} !!!!!!", rule.Sum);
         }
-        public void showDiceAlternative(Player player)
+        public void showDiceAlternative(Player player)            // write out dices players hold 
         {
             if (!player.HoldState)
             {
@@ -43,24 +54,23 @@ namespace Yatzee.View
                 System.Console.WriteLine("YOU HAVE USED ALL YOUR CHANCE");
             }
         }
-        public void Catch()
+        public void Catch()               // catch all the wrong inputs
         {
             System.Console.WriteLine("enter a key number and press 0 to return");
         }
         public void DisplayRoll(List<int> ListaOverDice, bool Diceroll)
         {
             Console.Clear();
-
             int DifferentDice = 0;
            
             foreach (int dice in ListaOverDice)
             {
                 DifferentDice++;
-                System.Console.WriteLine("Dice {1}: {0}", dice, DifferentDice);
+                System.Console.WriteLine("Dice {1}: {0}", dice, DifferentDice);          // write out the dices tossed
             }
             if (Diceroll)
             {
-                System.Console.WriteLine("======================================================");
+                System.Console.WriteLine("======================================================");                           // screen to perform re-roll
                 System.Console.WriteLine("Press 1- 5 to switch each Dices and press Enter");
                 System.Console.WriteLine("Press 6 to perform re-roll");
                 System.Console.WriteLine("Press 0 to return to first page");
@@ -68,7 +78,7 @@ namespace Yatzee.View
             }
         }
 
-        public void DisplayScore(IReadOnlyCollection<Player> list)
+        public void DisplayScore(IReadOnlyCollection<Player> list)                   // view Ireads from Model
         {
             Console.Clear();
             foreach (Player member in list)

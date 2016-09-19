@@ -46,6 +46,17 @@
     <Compile Include="Model\DAL.cs" />
     <Compile Include="Model\Dice.cs" />
     <Compile Include="Model\DiceRule.cs" />
+    <Compile Include="Model\Interface\AddupDice.cs" />
+    <Compile Include="Model\Interface\Bonus.cs" />
+    <Compile Include="Model\Interface\Chance.cs" />
+    <Compile Include="Model\Interface\FourOfaKind.cs" />
+    <Compile Include="Model\Interface\FullHouse.cs" />
+    <Compile Include="Model\Interface\IGameRules.cs" />
+    <Compile Include="Model\Interface\LargeStraight.cs" />
+    <Compile Include="Model\Interface\MaxyYatzee.cs" />
+    <Compile Include="Model\Interface\SmallStraight.cs" />
+    <Compile Include="Model\Interface\ThreeOfaKind.cs" />
+    <Compile Include="Model\Interface\Yatzee.cs" />
     <Compile Include="Model\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

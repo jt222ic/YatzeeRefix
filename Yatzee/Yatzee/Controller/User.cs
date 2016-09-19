@@ -74,8 +74,9 @@ namespace Yatzee.View
         }
         public void Register()
         {
-           
-            
+
+            do
+            {
                 try
                 {
                     show.Register();
@@ -111,6 +112,8 @@ namespace Yatzee.View
                 {
                     show.Catch();
                 }
+            }
+            while (show.returnInput());
             }
 
         public void RemovePlayer()
