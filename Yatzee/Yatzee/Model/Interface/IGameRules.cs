@@ -8,10 +8,6 @@ namespace Yatzee.Model.Interface
 {
     interface IGameRules
     {
-        
-
           int DiceScore(List<int> ListOfDice, int PlayerSelectValues);
-          
-
     }
 }
