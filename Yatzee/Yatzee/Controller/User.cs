@@ -14,15 +14,12 @@ namespace Yatzee.View
         Player player;
         List<Player> PlayerList = new List<Player>();
         Dice roll;
-        DiceRule Rules;
+   
         List<int> ListaAvRoll;
         IReadOnlyCollection<Player> ListOfPlayers;
         private const char PLAY_KEY = 'p';
         
-        bool perforReRoll = false;
-        bool RerollView = false;
-        int Tossthree = 0;
-        int dicenumber;
+       
         int choice;
 
         public enum Options
@@ -43,35 +40,10 @@ namespace Yatzee.View
         {
             roll = new Dice();
             show = new ViewStatus();
-            Rules = new DiceRule();
+            
             PlayerList.Add(player = new Player("Human", ListaAvRoll));
         }
-        public void MainMenu()
-        {
-                try
-                {
-                    show.DisplayFirstPage();
-                    string choices = show.GetInput();                                      // Hämtar input button från view 
-                    int Choice = int.Parse(choices);
-
-                    switch (Choice)
-                    {
-                        case 0:
-                            return;
-
-                        case 1:
-                            ListaAvRoll = roll.Roll();
-                            perforReRoll = true;
-                            show.DisplayRoll(ListaAvRoll, RerollView);
-                            ChoiceOfReRoll();
-                            break;
-                    }
-                }
-                catch
-                {
-                    show.Catch();
-                }
-        }
+       
         public void Register()
         {
 
@@ -148,65 +120,7 @@ namespace Yatzee.View
             choice--;
             player = PlayerList.ElementAt(choice);
         }
-        public void ChoiceOfReRoll()
-        {
-            Tossthree = 0;
-            bool RerollView = true;
-            show.DisplayRoll(ListaAvRoll, RerollView);
-           
-                try
-                {
-                    YatzeeController YatzeeList = new YatzeeController(Rules, player, show, ListaAvRoll);
-                    show.showDiceAlternative(player);
-                    string NewReRoll = show.GetInput();
-                    int DiceChoice = int.Parse(NewReRoll);
-                    switch (DiceChoice)
-                    {
-                        case 0:
-                            return;
-                        case 1:
-                            dicenumber = 0;
-                            roll.ReRoll(dicenumber, ListaAvRoll, player);
-                            break;
-                        case 2:
-                            dicenumber = 1;
-                            roll.ReRoll(dicenumber, ListaAvRoll, player);
-                            break;
-                        case 3:
-                            dicenumber = 2;
-                            roll.ReRoll(dicenumber, ListaAvRoll, player);
-                            break;
-                        case 4:
-                            dicenumber = 3;
-                            roll.ReRoll(dicenumber, ListaAvRoll, player);
-                            break;
-                        case 5:
-                            dicenumber = 4;
-                            roll.ReRoll(dicenumber, ListaAvRoll, player);
-                            break;
-
-                        case 6:
-                            if (Tossthree < 2)
-                            {
-                                show.DisplayRoll(ListaAvRoll, perforReRoll);
-                                Tossthree++;
-                            }
-                            else
-                            {
-                                player.HoldState = true;
-                            }
-                            break;
-                        case 7:
-
-                            YatzeeList.YatzeeScoreSheet();
-                            break;
-                    }
-                }
-                catch
-                {
-                    show.Catch();
-                }
-            }
+   
          
     }
 }

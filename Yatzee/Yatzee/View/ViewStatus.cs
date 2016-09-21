@@ -37,10 +37,10 @@ namespace Yatzee.View
         {
             System.Console.WriteLine("LowerSection");
         }
-        public void showResult(DiceRule rule)                                  // summarise result of yatzee score
-        {
-            System.Console.WriteLine("!!!!!You get {0} !!!!!!", rule.Sum);
-        }
+    //    public void showResult(DiceRule rule)                                  // summarise result of yatzee score
+      //  {
+        //    System.Console.WriteLine("!!!!!You get {0} !!!!!!", rule.Sum);
+        //}
         public void showDiceAlternative(Player player)            // write out dices players hold 
         {
             if (!player.HoldState)

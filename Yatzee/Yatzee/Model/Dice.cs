@@ -33,15 +33,6 @@ namespace Yatzee.Model
             return OldDice;
         }
 
-        public List<int> BotReRoll(List<int> BotDice)
-        {
-            for (i = 0; i < BotDice.Count; i++)
-            {
-                BotDice[i] = random.Next(1, 7);
-            }
-
-            return BotDice;
-        }
     }
 }
      
