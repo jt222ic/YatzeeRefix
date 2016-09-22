@@ -9,6 +9,7 @@ namespace Yatzee.Model.Interface
     class FourOfaKind : IGameRules
     {
         int Sum;
+        int Totalscore
         bool m_FourOfAKind;
 
         public int DiceScore(List<int> Dice, int PlayerSelectValues)
@@ -40,7 +41,13 @@ namespace Yatzee.Model.Interface
                 }
 
             }
+            Totalscore += Sum;
             return Sum;
+        }
+
+        public int TotalScore()
+        {
+            return 0;
         }
     }
 }

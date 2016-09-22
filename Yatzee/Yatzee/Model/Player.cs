@@ -29,6 +29,19 @@ namespace Yatzee.Model
         private int NumberFour;
         private int NumberFive;
         private int NumberSix;
+        private int Sum;
+
+        public int GetSum
+        {
+            get
+            {
+                return Sum;
+            }
+            set
+            {
+                Sum = value;
+            }
+        }
        
         
         public int GetChance

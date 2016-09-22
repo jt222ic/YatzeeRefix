@@ -41,5 +41,10 @@ namespace Yatzee.Model.Interface
             }
             return Sum;
         }
+
+        public int TotalScore()
+        {
+            return 0;
+        }
     }
 }

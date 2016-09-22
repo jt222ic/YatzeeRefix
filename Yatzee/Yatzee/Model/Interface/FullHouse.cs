@@ -39,5 +39,10 @@ namespace Yatzee.Model.Interface
 
             return Sum;
         }
+
+        int IGameRules.TotalScore()
+        {
+            return TotalScore;
+        }
     }
 }

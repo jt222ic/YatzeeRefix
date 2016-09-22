@@ -40,7 +40,6 @@ namespace Yatzee.View
         {
             roll = new Dice();
             show = new ViewStatus();
-            
             PlayerList.Add(player = new Player("Human", ListaAvRoll));
         }
        
@@ -54,6 +53,7 @@ namespace Yatzee.View
                     show.Register();
                     string Registration = show.GetInput();
                     int RegisterAlt = int.Parse(Registration);
+                    GameController kuntroller = new GameController(player, show, ListaAvRoll);
 
                     switch (RegisterAlt)
                     {
@@ -78,6 +78,11 @@ namespace Yatzee.View
                         case 6:
                             PlayerList = DAL.Initialize();
                             break;
+
+                        case 7:
+                           
+                            kuntroller.MainMenu();
+                            break;
                     }
                 }
                 catch
@@ -94,7 +99,7 @@ namespace Yatzee.View
             {
                 ListOfPlayers = DAL.getMemberList();
                 show.CompactList(ListOfPlayers);
-                choice = int.Parse(show.GetInput());
+              choice = int.Parse(show.GetInput());
                 if (choice == 0)
                 {
                     return;

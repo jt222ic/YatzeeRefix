@@ -12,7 +12,7 @@ namespace Yatzee.Controller
         public void CreateUser()
         {
             User Userview = new User();
-
+           // GameController controller = new GameController()
                
             //User.Options input = Userview.GetOptions();
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Yatzee.Model;
+using Yatzee.Model.Interface;
 
 namespace Yatzee.View
 {
@@ -13,6 +14,10 @@ namespace Yatzee.View
         public string GetInput()                                         // Controller reads lines from view class, Console belongs to view class. For Controller
         {
             return System.Console.ReadLine();
+        }
+        public int GetKey()
+        {
+            return System.Console.Read();
         }
         public bool returnInput()
         {
@@ -37,38 +42,21 @@ namespace Yatzee.View
         {
             System.Console.WriteLine("LowerSection");
         }
-    //    public void showResult(DiceRule rule)                                  // summarise result of yatzee score
-      //  {
-        //    System.Console.WriteLine("!!!!!You get {0} !!!!!!", rule.Sum);
-        //}
-        public void showDiceAlternative(Player player)            // write out dices players hold 
-        {
-            if (!player.HoldState)
-            {
-                System.Console.WriteLine("============================");
-                System.Console.WriteLine("Pick Dices to change");
-                System.Console.WriteLine("=========================== ");
-            }
-            else
-            {
-                System.Console.WriteLine("YOU HAVE USED ALL YOUR CHANCE");
-            }
-        }
-        public void Catch()               // catch all the wrong inputs
+
+        public void Catch()                                                       // catch all the wrong inputs
         {
             System.Console.WriteLine("enter a key number and press 0 to return");
         }
-        public void DisplayRoll(List<int> ListaOverDice, bool Diceroll)
+        public void DisplayRoll(List<int> ListaOverDice, bool AvailableReroll)                 // from model bool //
         {
             Console.Clear();
             int DifferentDice = 0;
-           
             foreach (int dice in ListaOverDice)
             {
                 DifferentDice++;
                 System.Console.WriteLine("Dice {1}: {0}", dice, DifferentDice);          // write out the dices tossed
             }
-            if (Diceroll)
+            if (!AvailableReroll)                                                                      
             {
                 System.Console.WriteLine("======================================================");                           // screen to perform re-roll
                 System.Console.WriteLine("Press 1- 5 to switch each Dices and press Enter");
@@ -76,6 +64,15 @@ namespace Yatzee.View
                 System.Console.WriteLine("Press 0 to return to first page");
                 System.Console.WriteLine("======================================================");
             }
+            else
+            {
+                System.Console.WriteLine("YOU have Used All YOUR REROLL");
+            }
+        }
+        public void showResult(int sum)
+        {
+            
+            System.Console.WriteLine("!!!!!You get {0} !!!!!!", sum);
         }
 
         public void DisplayScore(IReadOnlyCollection<Player> list)                   // view Ireads from Model
@@ -149,7 +146,7 @@ namespace Yatzee.View
             System.Console.WriteLine("==============PLease write your name down===========================");
             return System.Console.ReadLine();
         }
-        public void CompactList(IReadOnlyCollection<Player> list)  // spara in listan först
+        public void CompactList(IReadOnlyCollection<Player> list)  
         {
             int i = 1;
             Console.WriteLine("Player: ");

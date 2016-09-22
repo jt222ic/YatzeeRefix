@@ -51,6 +51,7 @@
     <Compile Include="Model\Interface\Chance.cs" />
     <Compile Include="Model\Interface\FourOfaKind.cs" />
     <Compile Include="Model\Interface\FullHouse.cs" />
+    <Compile Include="Model\Interface\GetRule.cs" />
     <Compile Include="Model\Interface\IGameRules.cs" />
     <Compile Include="Model\Interface\LargeStraight.cs" />
     <Compile Include="Model\Interface\MaxyYatzee.cs" />
