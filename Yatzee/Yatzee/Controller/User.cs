@@ -81,7 +81,7 @@ namespace Yatzee.View
 
                         case 7:
                            
-                            kuntroller.MainMenu();
+                            kuntroller.PerFormFirstRoll();
                             break;
                     }
                 }

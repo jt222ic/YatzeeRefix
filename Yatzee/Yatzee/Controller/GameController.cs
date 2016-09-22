@@ -17,7 +17,6 @@ namespace Yatzee.View
         Game game;
         int dicenumber;
         List<int> ListaAvRoll;
-       
 
         public GameController(Player player, ViewStatus show, List<int> ListaAvRoll)
         {
@@ -27,7 +26,7 @@ namespace Yatzee.View
             game = new Game();
         }
 
-        public void MainMenu()
+        public void PerFormFirstRoll()
         {
             try
             {
@@ -56,11 +55,11 @@ namespace Yatzee.View
                 {
                     string NewReRoll = show.GetInput();
                     int DiceChoice = int.Parse(NewReRoll);
-                    if(DiceChoice == 7)
+                    if (DiceChoice == 7)
                     {
                         UpperSection();
                     }
-                 
+
                     if (!game.LockDiceToss)                 // made the variable field public 
                     {
                         switch (DiceChoice)
@@ -111,7 +110,7 @@ namespace Yatzee.View
                 string choices = show.GetInput();   // view
                 int PlayerValue;
                 int RuleChoice = int.Parse(choices);
-                                                                // Taking Totalscore from player and add in from the game
+                // Taking Totalscore from player and add in from the game
 
                 switch (RuleChoice)
                 {
@@ -119,37 +118,38 @@ namespace Yatzee.View
                         return false;
                     case 1:
                         PlayerValue = 1;
-                        player.GetOne = game.SubmitScore(ListaAvRoll,PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
-                        player.GetSum = game.SubmitScore(ListaAvRoll, PlayerValue);                       // the collection of sum of each ruule6
+                        player.GetOne = game.SubmitScore(ListaAvRoll, PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
+                        player.GetSum = player.GetOne;                                                        // the collection of sum of each ruule6
                         break;
                     case 2:
                         PlayerValue = 2;
                         player.GetTwo = game.SubmitScore(ListaAvRoll, PlayerValue);
-                        player.GetSum = game.SubmitScore(ListaAvRoll, PlayerValue);
+                        player.GetSum = player.GetTwo;
                         break;
 
                     case 3:
                         PlayerValue = 3;
-                        player.GetThree = game.SubmitScore(ListaAvRoll,PlayerValue);
-                        player.GetSum = game.SubmitScore(ListaAvRoll, PlayerValue);
+                        player.GetThree = game.SubmitScore(ListaAvRoll, PlayerValue);
+                        player.GetSum = player.GetThree;
                         break;
 
                     case 4:
                         PlayerValue = 4;
                         player.GetFour = game.SubmitScore(ListaAvRoll, PlayerValue);
-                        player.GetSum = game.SubmitScore(ListaAvRoll, PlayerValue);
+                        player.GetSum = player.GetFour;
                         break;
 
                     case 5:
                         PlayerValue = 5;
                         player.GetFive = game.SubmitScore(ListaAvRoll, PlayerValue);
-                        player.GetSum = game.SubmitScore(ListaAvRoll, PlayerValue);
+                        player.GetSum = player.GetFive;
+
                         break;
 
                     case 6:
                         PlayerValue = 6;
                         player.GetSix = game.SubmitScore(ListaAvRoll, PlayerValue);
-                        player.GetSum = game.SubmitScore(ListaAvRoll, PlayerValue);
+                        player.GetSum = player.GetSix;
                         break;
 
                     case 7:
@@ -158,57 +158,63 @@ namespace Yatzee.View
                         break;
                 }
             }
-            
             catch
             {
                 show.Catch();
             }
-            show.showResult(player.GetSum);
-
-
+            show.showResult(player.GetSum);            // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
             return true;
         }
         public void LowerSection()
         {
             string lowerchoices = show.GetInput();
             int LowerChoice = int.Parse(lowerchoices);
-          
+
 
             switch (LowerChoice)
             {
                 case 0:
                     return;
                 case 1:
-                    // player.GetThreeOfAKind = Rules.ThreeOfAKind(ListaAvRoll);
+
+
+                    player.GetThreeOfAKind = game.SubmitThreeOfAKind(ListaAvRoll, 0);
+                    player.GetSum = player.GetThreeOfAKind;
                     break;
 
                 case 2:
-                    //player.GetFourOfAKind = Rules.FourOfAKind(ListaAvRoll);
+                    player.GetFourOfAKind = game.SubmitFourOfaKind(ListaAvRoll, 0);
+                    player.GetSum = player.GetFourOfAKind;
                     break;
 
                 case 3:
-                    //player.GetFullHouse = Rules.FullHouse(ListaAvRoll);
+                    player.GetFullHouse = game.SubmitFullHouse(ListaAvRoll, 0);
+                    player.GetSum = player.GetFullHouse;
                     break;
 
                 case 4:
-                    //player.GetSmallStraight = Rules.SmallStraight(ListaAvRoll);
+                    player.GetSmallStraight = game.SubmitSmallStraight(ListaAvRoll, 0);
+                    player.GetSum = player.GetSmallStraight;
                     break;
                 case 5:
-                    //player.GetLargeStraight = Rules.LargeStraight(ListaAvRoll);
+                    player.GetLargeStraight = game.SubmitLargeStraight(ListaAvRoll, 0);
+                    player.GetSum = player.GetLargeStraight;
                     break;
 
                 case 6:
-                    //player.GetChance = Rules.Chance(ListaAvRoll);
+                    player.GetChance = game.SubmitChance(ListaAvRoll, 0);
+                    player.GetSum = player.GetChance;
                     break;
 
                 case 7:
-                    //player.GetYatzee = Rules.Yatzee(ListaAvRoll);
+                    player.GetYatzee = game.SubmitYatzee(ListaAvRoll, 0);
+                    player.GetSum = player.GetYatzee;
                     break;
 
                 default:
                     return;
             }
-            // show.showResult(Rules);
+            show.showResult(player.GetSum);
         }
     }
 }

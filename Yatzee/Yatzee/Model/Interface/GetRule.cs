@@ -51,6 +51,7 @@ namespace Yatzee.Model.Interface
         {
             return new Chance();
         }
+    
 
     }
 

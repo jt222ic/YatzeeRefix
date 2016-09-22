@@ -42,13 +42,13 @@ namespace Yatzee.Model
                 Sum = value;
             }
         }
-       
-        
+
+
         public int GetChance
         {
             get
             {
-                 
+
                 return chance;
             }
             set
@@ -56,13 +56,13 @@ namespace Yatzee.Model
                 chance = value;
             }
         }
-         public int GetTotalScore
+        public int GetTotalScore
         {
-             get
+            get
             {
                 return TOTALSCORE;
             }
-             set
+            set
             {
                 TOTALSCORE = value;
             }
@@ -75,13 +75,13 @@ namespace Yatzee.Model
             }
             set
             {
-                    Addup = value;
+                Addup = value;
             }
         }
         public int GetBonus
         {
             get
-            { return BonusScore;}
+            { return BonusScore; }
             set
             {
                 BonusScore = value;
@@ -120,7 +120,7 @@ namespace Yatzee.Model
                 Yatzee = value;
             }
         }
-        
+
         public int GetSmallStraight
         {
             get
@@ -234,24 +234,24 @@ namespace Yatzee.Model
                 Datum = value;
             }
         }
-     
-        public Player(string name,List<int>roll)
+
+        public Player(string name, List<int> roll)
         {
             test = roll;
             Name = name;
             Datum = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-            
+
             sendToMemberList(this);
-           
+
         }
-     
+
         public void sendToMemberList(Player member)
         {
             DAL.AddMemberToList(member);
         }
         public bool HoldState
         {
-            get { return m_bHoldState ; }
+            get { return m_bHoldState; }
             set { m_bHoldState = value; }
         }
 
@@ -263,7 +263,7 @@ namespace Yatzee.Model
             }
             set
             {
-                if(Name.Length<=0)
+                if (Name.Length <= 0)
                 {
                     throw new ArgumentException("Character needs to be more than 1 char");
                 }

@@ -22,9 +22,6 @@ namespace Yatzee.Model.Interface
             return BonusPoint;
         }
 
-        int IGameRules.TotalScore()
-        {
-            return TotalScore;
-        }
+
     }
 }

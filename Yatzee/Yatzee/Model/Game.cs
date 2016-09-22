@@ -7,14 +7,14 @@ using Yatzee.Model.Interface;
 
 namespace Yatzee.Model
 {
-    class Game
+    class Game :  GameExtension
     {
-   
+
         int MaximumToss = 2;
         public bool LockDiceToss = false;
         Dice Dice = new Dice();
-        GetRule Rules = new GetRule();
-
+        
+        
         public bool Stand()
         {
             return true;
@@ -29,12 +29,12 @@ namespace Yatzee.Model
         }
         public List<int> performFirstRoll()
         {
-           return Dice.Roll();
+            return Dice.Roll();
         }
 
         public List<int> performReroll(int Dicenumber, List<int> Dices, Player player)
         {
-           return Dice.ReRoll(Dicenumber, Dices, player);
+            return Dice.ReRoll(Dicenumber, Dices, player);
 
         }
         public bool ChangetwoTimes()
@@ -54,19 +54,9 @@ namespace Yatzee.Model
         {
             return false;
         }
-        public int SubmitScore(List<int> ListofDice, int PlayerSelectValue)
-        {
-
-           
-            return Rules.getAddupDice().DiceScore(ListofDice, PlayerSelectValue);
-        }
-
-        public int lowerSubmitScore()
-        {
-
-            return 5;
-        }
-
+      
 
     }
-}
+
+    }
+
