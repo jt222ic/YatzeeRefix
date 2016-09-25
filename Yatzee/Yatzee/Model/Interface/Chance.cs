@@ -10,20 +10,14 @@ namespace Yatzee.Model.Interface
     {
 
         int Sum;
-        int Totalscore;
 
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValues)
         {
             Sum = 0;
             Sum += ListOfDice.Sum();
-            Totalscore += Sum;
-
             return Sum;
         }
 
-        public int TotalScore()
-        {
-            return Totalscore;
-        }
+     
     }
 }

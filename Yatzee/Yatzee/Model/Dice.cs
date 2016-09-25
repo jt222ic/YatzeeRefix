@@ -13,8 +13,7 @@ namespace Yatzee.Model
         public int RollNumber;
         List<int> unique;
         List<int> newDices = new List<int>();
-        
-    
+
         public List<int> Roll()
         {
             unique = new List<int>();

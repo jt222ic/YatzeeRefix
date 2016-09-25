@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Yatzee.Model
 {
     [Serializable]
-    public class Player
+    public class Player  
     {
         public int TOTALSCORE;
         private int BonusScore;
@@ -22,7 +22,7 @@ namespace Yatzee.Model
         private int FullHouse;
         private int chance;
         DateTime Datum;
-        List<int> test;
+       
         private int NumberOne;
         private int NumberTwo;
         private int NumberThree;
@@ -42,8 +42,6 @@ namespace Yatzee.Model
                 Sum = value;
             }
         }
-
-
         public int GetChance
         {
             get
@@ -120,7 +118,6 @@ namespace Yatzee.Model
                 Yatzee = value;
             }
         }
-
         public int GetSmallStraight
         {
             get
@@ -154,7 +151,6 @@ namespace Yatzee.Model
                 FullHouse = value;
             }
         }
-
         public int GetOne
         {
             get
@@ -188,7 +184,6 @@ namespace Yatzee.Model
                 NumberThree = value;
             }
         }
-
         public int GetFour
         {
             get
@@ -200,7 +195,6 @@ namespace Yatzee.Model
                 NumberFour = value;
             }
         }
-
         public int GetFive
         {
             get
@@ -234,17 +228,15 @@ namespace Yatzee.Model
                 Datum = value;
             }
         }
-
-        public Player(string name, List<int> roll)
+        public Player(string name)
         {
-            test = roll;
+            
             Name = name;
             Datum = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
 
             sendToMemberList(this);
 
         }
-
         public void sendToMemberList(Player member)
         {
             DAL.AddMemberToList(member);
@@ -254,7 +246,6 @@ namespace Yatzee.Model
             get { return m_bHoldState; }
             set { m_bHoldState = value; }
         }
-
         public string GetName
         {
             get

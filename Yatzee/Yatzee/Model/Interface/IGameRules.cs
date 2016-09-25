@@ -10,7 +10,5 @@ namespace Yatzee.Model.Interface
     {
        
           int DiceScore(List<int> ListOfDice, int PlayerSelectValues);
-
-          
     }
 }

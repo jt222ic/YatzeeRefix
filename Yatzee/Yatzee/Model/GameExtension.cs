@@ -7,14 +7,13 @@ using Yatzee.Model.Interface;
 
 namespace Yatzee.Model
 {
-    public class GameExtension
+    public abstract class GameExtension
     {
         GetRule Rules = new GetRule();
         public int SubmitScore(List<int> ListofDice, int PlayerSelectValue)
         {
             return Rules.getAddupDice().DiceScore(ListofDice, PlayerSelectValue);
         }
-
         public int SubmitThreeOfAKind(List<int> ListofDice, int PlayerSelectValue)
         {
             return Rules.getThreeOfaKind().DiceScore(ListofDice, 0);
@@ -43,12 +42,6 @@ namespace Yatzee.Model
         {
             return Rules.getYatzee().DiceScore(ListofDice, 0);
         }
-
-
-
-
-
-
 
         //  public int SubmitMaxyYatzee(List<int>ListofDice, int PlayerSelectValue)    include this if you want maxyYatzy
         // {

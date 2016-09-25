@@ -14,35 +14,15 @@ namespace Yatzee.View
         Player player;
         List<Player> PlayerList = new List<Player>();
         Dice roll;
-   
-        List<int> ListaAvRoll;
         IReadOnlyCollection<Player> ListOfPlayers;
-        private const char PLAY_KEY = 'p';
         
-       
-        int choice;
-
-        public enum Options
-        {
-            Play
-        }
-        public  Options GetOptions()
-        {
-            switch (System.Console.In.Read())
-            {
-                case PLAY_KEY:
-                    return Options.Play;
-            }
-            return Options.Play;
-
-        }
         public User()
         {
             roll = new Dice();
             show = new ViewStatus();
-            PlayerList.Add(player = new Player("Human", ListaAvRoll));
+            //PlayerList.Add(player = new Player("Human", ListaAvRoll));
         }
-       
+
         public void Register()
         {
 
@@ -50,17 +30,17 @@ namespace Yatzee.View
             {
                 try
                 {
-                    show.Register();
+                    show.DisplayRegistration();
                     string Registration = show.GetInput();
                     int RegisterAlt = int.Parse(Registration);
-                    GameController kuntroller = new GameController(player, show, ListaAvRoll);
-
+                    GameController InGameController = new GameController(ListOfPlayers, player, show);
+                    
                     switch (RegisterAlt)
                     {
                         case 0:
                             break;
                         case 1:
-                            PlayerList.Add(player = new Player(show.ReturnInfo(), ListaAvRoll));
+                          PlayerList.Add(player = new Player(show.ReturnInfo()));
                             break;
                         case 2:
 
@@ -80,18 +60,33 @@ namespace Yatzee.View
                             break;
 
                         case 7:
-                           
-                            kuntroller.PerFormFirstRoll();
+                            try
+                            {
+                                if (!PlayerList.Contains(player))
+                                {
+                                    throw new ArgumentException();
+                                }
+                                else
+                                {
+                                    InGameController.PerFormFirstRoll();
+                                }
+                            }
+                            catch(ArgumentException e)
+                            {
+                                throw new ArgumentException("There is no class available", e);
+                            }
                             break;
                     }
                 }
-                catch
+                catch(ArgumentException e)
                 {
-                    show.Catch();
+                  
+                    show.CatchArgument(e);
+                    
                 }
             }
             while (show.returnInput());
-            }
+        }
 
         public void RemovePlayer()
         {
@@ -99,7 +94,7 @@ namespace Yatzee.View
             {
                 ListOfPlayers = DAL.getMemberList();
                 show.CompactList(ListOfPlayers);
-              choice = int.Parse(show.GetInput());
+                int choice = int.Parse(show.GetInput());
                 if (choice == 0)
                 {
                     return;
@@ -113,19 +108,5 @@ namespace Yatzee.View
                 show.Catch();
             }
         }
-        public void ChangePlayer()
-        {
-            ListOfPlayers = DAL.getMemberList();
-            show.CompactList(ListOfPlayers);
-            choice = int.Parse(show.GetInput());
-            if (choice == 0)
-            {
-                return;
-            }
-            choice--;
-            player = PlayerList.ElementAt(choice);
-        }
-   
-         
     }
 }

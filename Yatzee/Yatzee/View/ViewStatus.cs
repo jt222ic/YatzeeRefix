@@ -11,13 +11,40 @@ namespace Yatzee.View
     class ViewStatus
     {
 
+
+        private const char UPPER_KEY = 'q';
+        private const char LOWER_KEY = 'w';
+        private const char SUBMIT_KEY = 's';
+
+
+        public enum Options
+        {
+
+            UpperSection ,
+            LowerSection ,
+            SUBMIT,
+            Escape
+        }
+        public Options GetOptions()
+        {
+            switch (System.Console.In.Read())
+            {
+                case UPPER_KEY:
+                    return Options.UpperSection;
+
+                case LOWER_KEY:
+                    return Options.LowerSection;
+
+                case SUBMIT_KEY:
+                    return Options.SUBMIT;
+
+                 default:
+                    return Options.Escape;
+            }
+        }
         public string GetInput()                                         // Controller reads lines from view class, Console belongs to view class. For Controller
         {
             return System.Console.ReadLine();
-        }
-        public int GetKey()
-        {
-            return System.Console.Read();
         }
         public bool returnInput()
         {
@@ -27,9 +54,6 @@ namespace Yatzee.View
             }
             return false;
         }
-
-    // the rest below reads from Model and some dependencies on model
-
         public void DisplayFirstPage()
         {
             System.Console.Clear();
@@ -37,15 +61,17 @@ namespace Yatzee.View
             System.Console.WriteLine("1.Roll a dice ");
             System.Console.WriteLine("==========================================");
         }
-
         public void showLowerSection()                           // write out lower section of brackets Yatzee
         {
             System.Console.WriteLine("LowerSection");
         }
-
         public void Catch()                                                       // catch all the wrong inputs
         {
-            System.Console.WriteLine("enter a key number and press 0 to return");
+            System.Console.WriteLine("enter right key number and press 0 to return");
+        }  
+        public void CatchArgument(ArgumentException e)
+        {
+            System.Console.WriteLine("{0}",e);
         }
         public void DisplayRoll(List<int> ListaOverDice, bool AvailableReroll)                 // from model bool //
         {
@@ -54,8 +80,11 @@ namespace Yatzee.View
             foreach (int dice in ListaOverDice)
             {
                 DifferentDice++;
+                System.Console.BackgroundColor = ConsoleColor.Blue;
                 System.Console.WriteLine("Dice {1}: {0}", dice, DifferentDice);          // write out the dices tossed
             }
+            Console.ResetColor();
+           
             if (!AvailableReroll)                                                                      
             {
                 System.Console.WriteLine("======================================================");                           // screen to perform re-roll
@@ -66,23 +95,21 @@ namespace Yatzee.View
             }
             else
             {
-                System.Console.WriteLine("YOU have Used All YOUR REROLL");
+                System.Console.BackgroundColor = ConsoleColor.DarkRed;
+                System.Console.WriteLine("YOU have Used All YOUR REROLL press 7 for Submit available score sheet");
             }
+            System.Console.ResetColor();
         }
         public void showResult(int sum)
         {
-            
+
             System.Console.WriteLine("!!!!!You get {0} !!!!!!", sum);
         }
-
         public void DisplayScore(IReadOnlyCollection<Player> list)                   // view Ireads from Model
         {
             Console.Clear();
             foreach (Player member in list)
             {
-                System.Console.WriteLine("                                     ");
-                System.Console.WriteLine("                                     ");
-                System.Console.WriteLine("                                     ");
                 System.Console.WriteLine("                                     ");
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine(" ****Yatzee****||{0}               ||", member.GetName);
@@ -125,11 +152,11 @@ namespace Yatzee.View
                 System.Console.WriteLine("TOTALSCORE            ||{0}          ||", member.GetTotalScore);
             }
         }
-        public void Register()
+        public void DisplayRegistration()
         {
             System.Console.Clear();
             System.Console.WriteLine("======================================================");
-            System.Console.WriteLine("Yatzee");
+            System.Console.WriteLine("Yatzee   ");
             System.Console.WriteLine("======================================================");
             System.Console.WriteLine("1. Register Player");
             System.Console.WriteLine("2. Register Comp--removed");
@@ -139,6 +166,23 @@ namespace Yatzee.View
             System.Console.WriteLine("6.  Load Game");
             System.Console.WriteLine("7.  Game Start");
             System.Console.WriteLine("======================================================");
+           
+        }
+        public void SectionPick()
+        {
+            System.Console.WriteLine("===============================================");
+            System.Console.WriteLine("Press button,choose a number and then press Enter");
+            System.Console.WriteLine("===============================================");
+            System.Console.WriteLine("Press {0} to Pick UpperSection", UPPER_KEY);
+            System.Console.WriteLine("Press {0} to Pick LowerSection", LOWER_KEY);
+            System.Console.WriteLine("Press {0} to Pick Switch Character", SUBMIT_KEY);
+
+        }
+        public string ReturnDicePicks()
+        {
+
+           System.Console.WriteLine("===it is your picked DICE==");
+           return System.Console.ReadLine();
         }
         public string ReturnInfo()
         {
@@ -156,7 +200,6 @@ namespace Yatzee.View
                 member.GetName, member.date, member.GetTotalScore, i++);
             }
         }
-       
     }
 }
     
