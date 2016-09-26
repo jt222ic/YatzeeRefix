@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\UserController.cs" />
     <Compile Include="Controller\User.cs" />
     <Compile Include="Model\DAL.cs" />
     <Compile Include="Model\Dice.cs" />

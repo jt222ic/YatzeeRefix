@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Yatzee.Model;
 using Yatzee.View;
 
-namespace Yatzee.View
+namespace Yatzee.Controller
 {
-    class User
+    class MenuController
     {
         ViewStatus show;
         Player player;
@@ -16,24 +16,25 @@ namespace Yatzee.View
         Dice roll;
         IReadOnlyCollection<Player> ListOfPlayers;
         
-        public User()
+        public MenuController()
         {
             roll = new Dice();
             show = new ViewStatus();
-            //PlayerList.Add(player = new Player("Human", ListaAvRoll));
+           // PlayerList.Add(player = new Player("Human"));
         }
 
         public void Register()
         {
-
+            GameController InGameController = new GameController(ListOfPlayers, PlayerList, player, show);
             do
             {
                 try
                 {
+                    
                     show.DisplayRegistration();
                     string Registration = show.GetInput();
                     int RegisterAlt = int.Parse(Registration);
-                    GameController InGameController = new GameController(ListOfPlayers, player, show);
+                   
                     
                     switch (RegisterAlt)
                     {
@@ -68,12 +69,13 @@ namespace Yatzee.View
                                 }
                                 else
                                 {
+                                    
                                     InGameController.PerFormFirstRoll();
                                 }
                             }
                             catch(ArgumentException e)
                             {
-                                throw new ArgumentException("There is no class available", e);
+                                throw new ArgumentException("There is no Player available", e);
                             }
                             break;
                     }

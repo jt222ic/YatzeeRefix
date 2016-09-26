@@ -90,6 +90,7 @@ namespace Yatzee.View
                 System.Console.WriteLine("======================================================");                           // screen to perform re-roll
                 System.Console.WriteLine("Press 1- 5 to switch each Dices and press Enter");
                 System.Console.WriteLine("Press 6 to perform re-roll");
+                System.Console.WriteLine("Press 7 to submit to scoresheet");
                 System.Console.WriteLine("Press 0 to return to first page");
                 System.Console.WriteLine("======================================================");
             }

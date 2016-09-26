@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Yatzee.Controller;
 using Yatzee.Model;
+using Yatzee.View;
 
 namespace Yatzee
 {
@@ -13,9 +14,9 @@ namespace Yatzee
         
         static void Main(string[] args)
         {
-            UserController startgame = new UserController();
-            startgame.CreateUser();
 
+            MenuController startYatzee = new MenuController();
+            startYatzee.Register();
            
         }
     }
