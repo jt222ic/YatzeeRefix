@@ -25,7 +25,7 @@ namespace Yatzee.View
             this.player = player;
             this.show = show;
             this.PlayerList = PlayerList;
-            game = new Game();
+            game = new Game(this.player);
 
             
         }
@@ -60,41 +60,42 @@ namespace Yatzee.View
                     int DiceChoice = int.Parse(NewReRoll);
                     if (DiceChoice == 7)
                     {
-                        player = GameChoices(PlayerList,player);
+                        player = GameChoices(PlayerList, player);
                     }
+
                     if (!game.LockDiceToss)
                     { 
 
                         switch (DiceChoice)
                         {
-                            case 0:
-                                return;
+                           // case 0:
+                            //    return;
                             case 1:
                                 dicenumber = 0;
-                                game.performReroll(dicenumber, game.Dices, player);
+                                game.performReroll(dicenumber, game.Dices);
                                 break;
                             case 2:
                                 dicenumber = 1;
-                                game.performReroll(dicenumber, game.Dices, player);
+                                game.performReroll(dicenumber, game.Dices);
                                 break;
                             case 3:
                                 dicenumber = 2;
-                                game.performReroll(dicenumber, game.Dices, player);
+                                game.performReroll(dicenumber, game.Dices);
                                 break;
                             case 4:
                                 dicenumber = 3;
-                                game.performReroll(dicenumber, game.Dices, player);
+                                game.performReroll(dicenumber, game.Dices);
                                 break;
                             case 5:
                                 dicenumber = 4;
-                                game.performReroll(dicenumber, game.Dices, player);
+                                game.performReroll(dicenumber, game.Dices);
                                 break;
                             case 6:
                                 game.ChangetwoTimes();
                                 show.DisplayRoll(game.Dices, game.ChangetwoTimes());
                                 break;
 
-                            default: return;
+                           // default: return;
                         }
                     }
                 }

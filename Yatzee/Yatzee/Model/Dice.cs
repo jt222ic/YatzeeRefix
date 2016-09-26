@@ -23,9 +23,9 @@ namespace Yatzee.Model
             }
             return unique;
         }
-        public List<int> ReRoll(int whichdice,List<int>OldDice, Player Player)    
+        public List<int> ReRoll(int whichdice,List<int>OldDice, Player player)    
         {
-            if (!Player.HoldState)
+            if (!player.HoldState)
             {
                 OldDice[whichdice] = random.Next(1, 7);
             }

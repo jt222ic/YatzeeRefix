@@ -25,12 +25,13 @@ namespace Yatzee.Controller
 
         public void Register()
         {
-            GameController InGameController = new GameController(ListOfPlayers, PlayerList, player, show);
+            GameController InGameController = new GameController(ListOfPlayers, PlayerList, player, show);       //if place here you can switch Player
             do
             {
                 try
                 {
-                    
+                                                                                         //GameController InGameController = new GameController(ListOfPlayers, PlayerList, player, show);   if places here lu
+
                     show.DisplayRegistration();
                     string Registration = show.GetInput();
                     int RegisterAlt = int.Parse(Registration);
