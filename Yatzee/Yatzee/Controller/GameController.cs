@@ -25,6 +25,7 @@ namespace Yatzee.View
             this.player = player;
             this.show = show;
             this.PlayerList = PlayerList;
+            game = new Game();
              
 
             
@@ -59,15 +60,19 @@ namespace Yatzee.View
             {
                 do
                 {
-                    string NewReRoll = show.ReturnDicePicks();
-                    int DiceChoice = int.Parse(NewReRoll);
-                    if (DiceChoice == 7)
-                    {
-                        player = GameChoices(PlayerList, player);
-                    }
+                    
+                   
 
+                   
                     if (!game.LockDiceToss)
-                    { 
+                    {
+                        string NewReRoll = show.ReturnDicePicks();
+                        int DiceChoice = int.Parse(NewReRoll);
+
+                        if (DiceChoice == 7)
+                        {
+                            player = GameChoices(PlayerList, player);
+                        }
 
                         switch (DiceChoice)
                         {
@@ -104,10 +109,10 @@ namespace Yatzee.View
                 }
                 while (show.returnInput());
             }
-            catch(ArgumentException e)
+            catch
             {
 
-                show.CatchArgument(e);
+                show.Catch();
                
             }
         }
@@ -116,6 +121,7 @@ namespace Yatzee.View
             show.DisplayScore(DAL.getMemberList());
             show.SectionPick();
             ViewStatus.Options input = show.GetOptions();
+          
 
             if (input == ViewStatus.Options.UpperSection)
             {
@@ -131,6 +137,7 @@ namespace Yatzee.View
 
             }
             return player;
+            
         }
         public void UpperSection()
         {
@@ -188,11 +195,7 @@ namespace Yatzee.View
                 }
 
                 show.showResult(player.GetSum);
-            }
-         
-            
-            
-                                                       // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
+            }                            // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
         
         public void LowerSection()
         {

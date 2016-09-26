@@ -69,9 +69,13 @@ namespace Yatzee.View
         {
             System.Console.WriteLine("enter right key number and press 0 to return");
         }  
-        public void CatchArgument(ArgumentException e)
+        public void CatchArgument(ArgumentException e)     // occasion use finding hidden fault in function
         {
             System.Console.WriteLine("{0}",e);
+        }
+        public void CatchNullArgument(ArgumentNullException e)     // occasion use finding hidden fault in function
+        {
+            System.Console.WriteLine("{0}", e);
         }
         public void DisplayRoll(List<int> ListaOverDice, bool AvailableReroll)                 // from model bool //
         {
@@ -182,7 +186,7 @@ namespace Yatzee.View
         public string ReturnDicePicks()
         {
 
-          // System.Console.WriteLine("===it is your picked DICE==");
+          System.Console.WriteLine("===it is your picked DICE==");
            return System.Console.ReadLine();
         }
         public string ReturnInfo()
