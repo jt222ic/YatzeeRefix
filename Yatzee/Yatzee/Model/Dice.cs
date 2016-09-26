@@ -28,7 +28,7 @@ namespace Yatzee.Model
             if (!player.HoldState)
             {
                 OldDice[whichdice] = random.Next(1, 7);
-            }
+           }
             return OldDice;
         }
 

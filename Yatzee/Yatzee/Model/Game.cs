@@ -15,23 +15,13 @@ namespace Yatzee.Model
         public bool LockDiceToss = false;
         Dice Dice = new Dice();
         public List<int> Dices;
-        
-        Player player;
-
         public List<int> performFirstRoll()
         {
             return Dice.Roll();
         }
-
-        public Game(Player player)
+        public List<int> performReroll(int Dicenumber, List<int> Dices, Player player)
         {
-            this.player = player;
-        }
-
-       
-        public List<int> performReroll(int Dicenumber, List<int> Dices)
-        {
-            return Dice.ReRoll(Dicenumber, Dices);
+            return Dice.ReRoll(Dicenumber, Dices, player);
         }
         public bool ChangetwoTimes()
         {

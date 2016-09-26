@@ -19,18 +19,19 @@ namespace Yatzee.View
         IReadOnlyCollection<Player> ListOfPlayers;
         List<Player> PlayerList;
 
-        public GameController(IReadOnlyCollection<Player> ListOfPlayers, List<Player> PlayerList, Player player, ViewStatus show)
+        public GameController( List<Player> PlayerList, Player player, ViewStatus show)
         {
-            this.ListOfPlayers = ListOfPlayers;
+           
             this.player = player;
             this.show = show;
             this.PlayerList = PlayerList;
-            game = new Game(this.player);
+             
 
             
         }
         public void PerFormFirstRoll()
         {
+
             try
             {
                 show.DisplayFirstPage();
@@ -41,12 +42,14 @@ namespace Yatzee.View
                 if (Choice == 1)
                 {
                     game.Dices = game.performFirstRoll();
-                    ChoiceOfReRoll();
+                   ChoiceOfReRoll();
                 }
             }
-            catch
+            catch(ArgumentException e)
             {
-                show.Catch();
+
+                show.CatchArgument(e);
+              
             }
         }
         public void ChoiceOfReRoll()
@@ -68,42 +71,44 @@ namespace Yatzee.View
 
                         switch (DiceChoice)
                         {
-                           // case 0:
-                            //    return;
+                            case 0:
+                               return;
                             case 1:
                                 dicenumber = 0;
-                                game.performReroll(dicenumber, game.Dices);
+                                game.performReroll(dicenumber, game.Dices, player);
                                 break;
                             case 2:
                                 dicenumber = 1;
-                                game.performReroll(dicenumber, game.Dices);
+                                game.performReroll(dicenumber, game.Dices, player);
                                 break;
                             case 3:
                                 dicenumber = 2;
-                                game.performReroll(dicenumber, game.Dices);
+                                game.performReroll(dicenumber, game.Dices, player);
                                 break;
                             case 4:
                                 dicenumber = 3;
-                                game.performReroll(dicenumber, game.Dices);
+                                game.performReroll(dicenumber, game.Dices, player);
                                 break;
                             case 5:
                                 dicenumber = 4;
-                                game.performReroll(dicenumber, game.Dices);
+                                game.performReroll(dicenumber, game.Dices, player);
                                 break;
                             case 6:
                                 game.ChangetwoTimes();
                                 show.DisplayRoll(game.Dices, game.ChangetwoTimes());
                                 break;
 
-                           // default: return;
+                           
                         }
                     }
                 }
                 while (show.returnInput());
             }
-            catch
+            catch(ArgumentException e)
             {
-                show.Catch();
+
+                show.CatchArgument(e);
+               
             }
         }
         public Player GameChoices(List<Player> PlayerList,Player player)
@@ -114,74 +119,81 @@ namespace Yatzee.View
 
             if (input == ViewStatus.Options.UpperSection)
             {
-                UpperSection(player);
+                UpperSection();
             }
             else if (input == ViewStatus.Options.LowerSection)
             {
                 LowerSection();
             }
-            else if (input == ViewStatus.Options.SUBMIT)
+            if (input == ViewStatus.Options.SUBMIT)
             {
                 player = ChangePlayer(PlayerList,player);
 
             }
             return player;
         }
-        public void UpperSection(Player player)
+        public void UpperSection()
         {
-            try
-            {
-                string choices = show.GetInput();
-                int PlayerValue;
-                int RuleChoice = int.Parse(choices);
-
-                switch (RuleChoice)
+            
+                try
                 {
-                    case 1:
-                        PlayerValue = 1;
-                        player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
-                        player.GetSum = player.GetOne;                                                        // the collection of sum of each ruule6
-                        break;
-                    case 2:
-                        PlayerValue = 2;
-                        player.GetTwo = game.SubmitScore(game.Dices, PlayerValue);
-                        player.GetSum = player.GetTwo;
-                        break;
+                    string choices = show.GetInput();
+                    int PlayerValue;
+                    int RuleChoice = int.Parse(choices);
 
-                    case 3:
-                        PlayerValue = 3;
-                        player.GetThree = game.SubmitScore(game.Dices, PlayerValue);
-                        player.GetSum = player.GetThree;
-                        break;
+                    switch (RuleChoice)
+                    {
+                        case 1:
+                            PlayerValue = 1;
+                            player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
+                            player.GetSum = player.GetOne;
+                            // the collection of sum of each ruule6
+                            break;
+                        case 2:
+                            PlayerValue = 2;
+                            player.GetTwo = game.SubmitScore(game.Dices, PlayerValue);
+                            player.GetSum = player.GetTwo;
+                            break;
 
-                    case 4:
-                        PlayerValue = 4;
-                        player.GetFour = game.SubmitScore(game.Dices, PlayerValue);
-                        player.GetSum = player.GetFour;
-                        break;
+                        case 3:
+                            PlayerValue = 3;
+                            player.GetThree = game.SubmitScore(game.Dices, PlayerValue);
+                            player.GetSum = player.GetThree;
+                            break;
 
-                    case 5:
-                        PlayerValue = 5;
-                        player.GetFive = game.SubmitScore(game.Dices, PlayerValue);
-                        player.GetSum = player.GetFive;
-                        break;
-                    case 6:
-                        PlayerValue = 6;
-                        player.GetSix = game.SubmitScore(game.Dices, PlayerValue);
-                        player.GetSum = player.GetSix;
-                        break;
+                        case 4:
+                            PlayerValue = 4;
+                            player.GetFour = game.SubmitScore(game.Dices, PlayerValue);
+                            player.GetSum = player.GetFour;
+                            break;
 
-                    default:return;
+                        case 5:
+                            PlayerValue = 5;
+                            player.GetFive = game.SubmitScore(game.Dices, PlayerValue);
+                            player.GetSum = player.GetFive;
+                            break;
+                        case 6:
+                            PlayerValue = 6;
+                            player.GetSix = game.SubmitScore(game.Dices, PlayerValue);
+                            player.GetSum = player.GetSix;
+                            break;
+                        default: return;
+
+
+                    }
                 }
+                catch
+                {
+                    show.Catch();
+                }
+
+                show.showResult(player.GetSum);
             }
-            catch
-            {
-                show.Catch();
-            }
-            show.showResult(player.GetSum);
+         
+            
             
                                                        // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
-        }
+        
         public void LowerSection()
         {
             string lowerchoices = show.GetInput();

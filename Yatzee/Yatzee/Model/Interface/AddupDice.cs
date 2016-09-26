@@ -11,7 +11,7 @@ namespace Yatzee.Model.Interface
 
         int playerValue;
         int Sum;
-        int TotalScore;
+       public int TotalScore;
         int BonusSum;
 
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValue)

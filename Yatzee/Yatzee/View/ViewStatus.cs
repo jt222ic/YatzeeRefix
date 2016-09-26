@@ -182,7 +182,7 @@ namespace Yatzee.View
         public string ReturnDicePicks()
         {
 
-           System.Console.WriteLine("===it is your picked DICE==");
+          // System.Console.WriteLine("===it is your picked DICE==");
            return System.Console.ReadLine();
         }
         public string ReturnInfo()

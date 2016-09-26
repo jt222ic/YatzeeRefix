@@ -25,7 +25,8 @@ namespace Yatzee.Controller
 
         public void Register()
         {
-            GameController InGameController = new GameController(ListOfPlayers, PlayerList, player, show);       //if place here you can switch Player
+            GameController InGameController = new GameController(PlayerList, player, show);
+                                                                                                                    //if place here you can switch Player
             do
             {
                 try

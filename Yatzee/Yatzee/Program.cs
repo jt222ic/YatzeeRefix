@@ -14,7 +14,7 @@ namespace Yatzee
         
         static void Main(string[] args)
         {
-
+            
             MenuController startYatzee = new MenuController();
             startYatzee.Register();
            
