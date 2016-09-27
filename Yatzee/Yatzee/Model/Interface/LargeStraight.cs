@@ -10,7 +10,7 @@ namespace Yatzee.Model.Interface
     {
 
         int Sum;
-        int TotalScore;
+        //int TotalScore;
 
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValues)
         {
@@ -39,7 +39,7 @@ namespace Yatzee.Model.Interface
                  (ArrayLarge[4] == 6)))
             {
                 Sum = 40;
-                TotalScore += 40;
+                //TotalScore += 40;
 
             }
 

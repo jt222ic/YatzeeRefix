@@ -11,7 +11,7 @@ namespace Yatzee.Model.Interface
 
         int playerValue;
         int Sum;
-       public int TotalScore;
+       //public int TotalScore;
         int BonusSum;
 
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValue)
@@ -24,7 +24,7 @@ namespace Yatzee.Model.Interface
                 if (ListOfDice[i] == playerValue)
                 {
                     Sum += playerValue;
-                    TotalScore += playerValue;
+                  //  TotalScore += playerValue;
                     BonusSum += playerValue;
                 }
             }

@@ -154,24 +154,27 @@ namespace Yatzee.View
                             PlayerValue = 1;
                             player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
                             player.GetSum = player.GetOne;
-                            // the collection of sum of each ruule6
+                                                     // the collection of sum of each ruule6
                             break;
                         case 2:
                             PlayerValue = 2;
                             player.GetTwo = game.SubmitScore(game.Dices, PlayerValue);
                             player.GetSum = player.GetTwo;
-                            break;
+                            
+                        break;
 
                         case 3:
                             PlayerValue = 3;
                             player.GetThree = game.SubmitScore(game.Dices, PlayerValue);
                             player.GetSum = player.GetThree;
-                            break;
+                           
+                        break;
 
                         case 4:
                             PlayerValue = 4;
                             player.GetFour = game.SubmitScore(game.Dices, PlayerValue);
                             player.GetSum = player.GetFour;
+                           
                             break;
 
                         case 5:
@@ -185,17 +188,15 @@ namespace Yatzee.View
                             player.GetSum = player.GetSix;
                             break;
                         default: return;
-
-
                     }
                 }
                 catch
                 {
                     show.Catch();
                 }
-
+                player.GetTotalScore += player.GetSum;
                 show.showResult(player.GetSum);
-            }                            // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
+            }                                                                          // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
         
         public void LowerSection()
         {
@@ -244,6 +245,7 @@ namespace Yatzee.View
                 default:
                     return;
             }
+            player.GetTotalScore += player.GetSum;
             show.showResult(player.GetSum);
         }
         public Player ChangePlayer(List<Player> PlayerList,Player player)

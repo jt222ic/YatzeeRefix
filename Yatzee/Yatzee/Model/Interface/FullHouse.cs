@@ -9,7 +9,7 @@ namespace Yatzee.Model.Interface
     class FullHouse : IGameRules
     {
         int Sum;
-        int TotalScore;
+        //int TotalScore;
 
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValues)
         {
@@ -33,7 +33,7 @@ namespace Yatzee.Model.Interface
                  (ArrayHouse[1] != ArrayHouse[2])))
             {
                 Sum = 25;
-                TotalScore += 25;
+                //TotalScore += 25;
 
             }
 
