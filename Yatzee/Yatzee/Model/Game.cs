@@ -15,15 +15,29 @@ namespace Yatzee.Model
         public bool LockDiceToss = false;
         Dice Dice = new Dice();
         public List<int> Dices;
-        int total;
+        //int total;
         public List<int> performFirstRoll()
         {
             return Dice.Roll();
         }
+        Player player = new Player("");
         public Game()
         {
-
+        
         }
+        public int getscore(int PlayerValue)
+        {
+            player.GetOne = SubmitScore(Dices, PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
+            player.GetSum = player.GetOne;
+
+            return SubmitScore(Dices, PlayerValue);
+        }
+
+        public void GatherScore(int score)
+        {
+            player.GetTotalScore += score;
+        }
+
 
         public List<int> performReroll(int Dicenumber, List<int> Dices, Player player)
         {

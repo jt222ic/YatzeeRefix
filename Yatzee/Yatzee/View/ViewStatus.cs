@@ -65,18 +65,7 @@ namespace Yatzee.View
         {
             System.Console.WriteLine("LowerSection");
         }
-        public void Catch()                                                       // catch all the wrong inputs
-        {
-            System.Console.WriteLine("enter right key number and press 0 to return");
-        }  
-        public void CatchArgument(ArgumentException e)     // occasion use finding hidden fault in function
-        {
-            System.Console.WriteLine("{0}",e);
-        }
-        public void CatchNullArgument(ArgumentNullException e)     // occasion use finding hidden fault in function
-        {
-            System.Console.WriteLine("{0}", e);
-        }
+     
         public void DisplayRoll(List<int> ListaOverDice, bool AvailableReroll)                 // from model bool //
         {
             Console.Clear();
@@ -204,6 +193,23 @@ namespace Yatzee.View
                 System.Console.WriteLine("Name :{0}, Date {1}, TotalScore : {2}  MemberID : {3} ",
                 member.GetName, member.date, member.GetTotalScore, i++);
             }
+        }
+
+
+
+        // error handling //   write out in string format to have a clue where the fault is at
+
+        public void Catch()                                                       // catch all the wrong inputs
+        {
+            System.Console.WriteLine("enter right key number and press 0 to return");
+        }
+        public void CatchArgument()                            // occasion use finding hidden fault in function
+        {
+            System.Console.WriteLine("There are no players registered");                
+        }
+        public void CatchNullArgument()                          // occasion use finding hidden fault in function
+        {
+            System.Console.WriteLine("No LEGIT input value");
         }
     }
 }

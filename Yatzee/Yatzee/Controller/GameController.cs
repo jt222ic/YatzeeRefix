@@ -18,6 +18,7 @@ namespace Yatzee.View
         int dicenumber;
         IReadOnlyCollection<Player> ListOfPlayers;
         List<Player> PlayerList;
+        int score;
 
         public GameController( List<Player> PlayerList, Player player, ViewStatus show)
         {
@@ -46,11 +47,9 @@ namespace Yatzee.View
                    ChoiceOfReRoll();
                 }
             }
-            catch(ArgumentException e)
+            catch
             {
-
-                show.CatchArgument(e);
-              
+                show.CatchNullArgument();
             }
         }
         public void ChoiceOfReRoll()
@@ -60,9 +59,6 @@ namespace Yatzee.View
             {
                 do
                 {
-                    
-                   
-
                    
                     if (!game.LockDiceToss)
                     {
@@ -72,6 +68,7 @@ namespace Yatzee.View
                         if (DiceChoice == 7)
                         {
                             player = GameChoices(PlayerList, player);
+                           
                         }
 
                         switch (DiceChoice)
@@ -102,8 +99,6 @@ namespace Yatzee.View
                                 game.ChangetwoTimes();
                                 show.DisplayRoll(game.Dices, game.ChangetwoTimes());
                                 break;
-
-                           
                         }
                     }
                 }
@@ -112,12 +107,13 @@ namespace Yatzee.View
             catch
             {
 
-                show.Catch();
+                show.CatchNullArgument();
                
             }
         }
         public Player GameChoices(List<Player> PlayerList,Player player)
         {
+           
             show.DisplayScore(DAL.getMemberList());
             show.SectionPick();
             ViewStatus.Options input = show.GetOptions();
@@ -137,28 +133,31 @@ namespace Yatzee.View
 
             }
             return player;
-            
         }
         public void UpperSection()
         {
-            
+
                 try
                 {
                     string choices = show.GetInput();
                     int PlayerValue;
                     int RuleChoice = int.Parse(choices);
+               
 
                     switch (RuleChoice)
                     {
                         case 1:
                             PlayerValue = 1;
-                            player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
-                            player.GetSum = player.GetOne;
-                                                     // the collection of sum of each ruule6
+                            score = game.getscore(PlayerValue);                 // alternative solution 2
+                                                                           // player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                      // to be able to store information in Playerclass to save it to DAL
+                            //player.GetSum = player.GetOne;
+
+                        
+                                                                                                               // the collection of sum of each ruule6
                             break;
                         case 2:
                             PlayerValue = 2;
-                            player.GetTwo = game.SubmitScore(game.Dices, PlayerValue);
+                            player.GetTwo = game.SubmitScore(game.Dices, PlayerValue);            // alternative solution 1
                             player.GetSum = player.GetTwo;
                             
                         break;
@@ -192,10 +191,11 @@ namespace Yatzee.View
                 }
                 catch
                 {
-                    show.Catch();
+                    show.CatchNullArgument();
                 }
-                player.GetTotalScore += player.GetSum;
-                show.showResult(player.GetSum);
+                game.GatherScore(score);
+               // player.GetTotalScore += player.GetSum;
+                show.showResult(score);
             }                                                                          // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
         
         public void LowerSection()

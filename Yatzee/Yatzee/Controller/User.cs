@@ -71,22 +71,20 @@ namespace Yatzee.Controller
                                 }
                                 else
                                 {
-                                    
                                     InGameController.PerFormFirstRoll();
-                                }
+                                }   
                             }
-                            catch(ArgumentException e)
+                            catch(ArgumentException)
                             {
-                                throw new ArgumentException("There is no Player available", e);
+                                show.CatchArgument();
                             }
                             break;
                     }
                 }
-                catch(ArgumentException e)
+                catch
                 {
-                  
-                    show.CatchArgument(e);
-                    
+                    show.CatchNullArgument();
+
                 }
             }
             while (show.returnInput());
@@ -109,7 +107,7 @@ namespace Yatzee.Controller
             }
             catch
             {
-                show.Catch();
+                show.CatchNullArgument();
             }
         }
     }
