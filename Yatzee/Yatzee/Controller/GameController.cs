@@ -148,9 +148,9 @@ namespace Yatzee.View
                     {
                         case 1:
                             PlayerValue = 1;
-                            score = game.getscore(PlayerValue);                 // alternative solution 2
-                                                                           // player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                      // to be able to store information in Playerclass to save it to DAL
-                            //player.GetSum = player.GetOne;
+                            score = game.getscore(PlayerValue);                           // alternative solution 2
+                                                                                        // player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                      // to be able to store information in Playerclass to save it to DAL
+                                                                                       //player.GetSum = player.GetOne;
 
                         
                                                                                                                // the collection of sum of each ruule6
