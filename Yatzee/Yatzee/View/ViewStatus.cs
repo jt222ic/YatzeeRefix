@@ -214,7 +214,7 @@ namespace Yatzee.View
         }
         public void CatchNullArgument()                          // occasion use finding hidden fault in function
         {
-            System.Console.WriteLine("No LEGIT input value");
+            System.Console.WriteLine("No legit input value, return one page");
         }
     }
 }

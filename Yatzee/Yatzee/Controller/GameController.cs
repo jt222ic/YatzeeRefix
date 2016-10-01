@@ -19,6 +19,7 @@ namespace Yatzee.View
         IReadOnlyCollection<Player> ListOfPlayers;
         List<Player> PlayerList;
         int score;
+        bool inMenu = true;
 
         public GameController( List<Player> PlayerList, Player player, ViewStatus show)
         {
@@ -34,17 +35,23 @@ namespace Yatzee.View
 
             try
             {
-                show.DisplayFirstPage();
-
-                string choices = show.GetInput();                                      // Hämtar input button från view 
-                int Choice = int.Parse(choices);
-
-                if (Choice == 1)
+                do
                 {
-                    game.Dices = game.performFirstRoll();
-                    ChoiceOfReRoll();
+                    show.DisplayFirstPage();
+
+                    string choices = show.GetInput();                                      // Hämtar input button från view 
+                    int Choice = int.Parse(choices);
+
+                    if (Choice == 1)
+                    {
+                        game.Dices = game.performFirstRoll();
+                        ChoiceOfReRoll();
+                    }
                 }
+                while (show.returnInput());
             }
+
+
             catch
             {
                 show.CatchNullArgument();
@@ -104,32 +111,37 @@ namespace Yatzee.View
             }
             catch
             {
-
                 show.CatchNullArgument();
                
             }
         }
         public Player GameChoices(List<Player> PlayerList,Player player)
         {
-           
-            show.DisplayScore(DAL.getMemberList());
-            show.SectionPick();
-            ViewStatus.Options input = show.GetOptions();
-          
+            
+            do
+            {
+                show.DisplayScore(DAL.getMemberList());
+                show.SectionPick();
+                ViewStatus.Options input = show.GetOptions();
 
-            if (input == ViewStatus.Options.UpperSection)
-            {
-                UpperSection();
-            }
-            else if (input == ViewStatus.Options.LowerSection)
-            {
-                LowerSection();
-            }
-            if (input == ViewStatus.Options.SUBMIT)
-            {
-                player = ChangePlayer(PlayerList,player);
 
+                if (input == ViewStatus.Options.UpperSection)
+                {
+                    UpperSection();
+                    inMenu = false;
+                }
+                else if (input == ViewStatus.Options.LowerSection)
+                {
+                    LowerSection();
+                    inMenu = false;
+                }
+                if (input == ViewStatus.Options.SUBMIT)
+                {
+                    player = ChangePlayer(PlayerList, player);
+                    inMenu = false;
+                }
             }
+            while (inMenu);
             return player;
         }
         public void UpperSection()

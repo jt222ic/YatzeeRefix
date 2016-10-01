@@ -111,7 +111,6 @@ namespace Yatzee.Model
             return SubmitScore(Dices, 0);
 
         }
-
         public int GetYatzee()
         {
             player.GetYatzee = SubmitYatzee(Dices,0);
@@ -125,6 +124,7 @@ namespace Yatzee.Model
         {
             player.GetTotalScore += score;
         }
+
         public List<int> performReroll(int Dicenumber, List<int> Dices, Player player)
         {
             return Dice.ReRoll(Dicenumber, Dices, player);
