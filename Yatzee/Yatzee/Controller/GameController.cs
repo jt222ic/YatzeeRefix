@@ -196,44 +196,39 @@ namespace Yatzee.View
                     return;
                 case 1:
 
-                    player.GetThreeOfAKind = game.SubmitThreeOfAKind(game.Dices, 0);                // the score for each indivduel score 
-                    player.GetSum = player.GetThreeOfAKind;                                             // to save and to send it to view 
+                    score = game.GetThreeOfAKind();                                           // to save and to send it to view 
                     break;
 
                 case 2:
-                    player.GetFourOfAKind = game.SubmitFourOfaKind(game.Dices, 0);
-                    player.GetSum = player.GetFourOfAKind;
+                    score = game.GetFourOfAKind();
                     break;
 
                 case 3:
-                    player.GetFullHouse = game.SubmitFullHouse(game.Dices, 0);
-                    player.GetSum = player.GetFullHouse;
+                    score = game.GetFullHouse();
                     break;
 
                 case 4:
-                    player.GetSmallStraight = game.SubmitSmallStraight(game.Dices, 0);
-                    player.GetSum = player.GetSmallStraight;
+                    score = game.GetSmallStraight();
+                    
+                    
                     break;
                 case 5:
-                    player.GetLargeStraight = game.SubmitLargeStraight(game.Dices, 0);
-                    player.GetSum = player.GetLargeStraight;
+                    score = game.GetLargeStraight();
                     break;
 
                 case 6:
-                    player.GetChance = game.SubmitChance(game.Dices, 0);
-                    player.GetSum = player.GetChance;
+                    score = game.Getchance();
                     break;
 
                 case 7:
-                    player.GetYatzee = game.SubmitYatzee(game.Dices, 0);
-                    player.GetSum = player.GetYatzee;
+                    score = game.GetYatzee();
                     break;
 
                 default:
                     return;
             }
             player.GetTotalScore += player.GetSum;
-            show.showResult(player.GetSum);
+            show.showResult(score);
         }
         public Player ChangePlayer(List<Player> PlayerList,Player player)
         {
