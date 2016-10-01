@@ -15,11 +15,13 @@ namespace Yatzee.Controller
         List<Player> PlayerList = new List<Player>();
         Dice roll;
         IReadOnlyCollection<Player> ListOfPlayers;
-        
+        GameController InGameController;
+
         public MenuController()
         {
             roll = new Dice();
             show = new ViewStatus();
+            InGameController = new GameController(PlayerList, player, show);
            // PlayerList.Add(player = new Player("Human"));
         }
 
@@ -31,7 +33,7 @@ namespace Yatzee.Controller
                 try
                 {
                     //GameController InGameController = new GameController(ListOfPlayers, PlayerList, player, show);                 if places here lu
-                    GameController InGameController = new GameController(PlayerList, player, show);
+                    
                     show.DisplayRegistration();
                     string Registration = show.GetInput();
                     int RegisterAlt = int.Parse(Registration);
