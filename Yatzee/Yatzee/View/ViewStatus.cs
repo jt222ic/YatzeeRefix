@@ -66,7 +66,7 @@ namespace Yatzee.View
             System.Console.WriteLine("LowerSection");
         }
      
-        public void DisplayRoll(List<int> ListaOverDice, bool AvailableReroll)                 // from model bool //
+        public void DisplayRoll(List<int> ListaOverDice)        //                    // from model bool // hidden dependencies
         {
             Console.Clear();
             int DifferentDice = 0;
@@ -77,23 +77,28 @@ namespace Yatzee.View
                 System.Console.WriteLine("Dice {1}: {0}", dice, DifferentDice);          // write out the dices tossed
             }
             Console.ResetColor();
-           
-            if (!AvailableReroll)                                                                      
-            {
-                System.Console.WriteLine("======================================================");                           // screen to perform re-roll
-                System.Console.WriteLine("Press 1- 5 to switch each Dices and press Enter");
-                System.Console.WriteLine("Press 6 to perform re-roll");
-                System.Console.WriteLine("Press 7 to submit to scoresheet");
-                System.Console.WriteLine("Press 0 to return to first page");
-                System.Console.WriteLine("======================================================");
-            }
-            else
+            System.Console.WriteLine("======================================================");                           // screen to perform re-roll
+            System.Console.WriteLine("Press 1- 5 to switch each Dices and press Enter");
+            System.Console.WriteLine("Press 6 to perform re-roll");
+            System.Console.WriteLine("Press 7 to submit to scoresheet");
+            System.Console.WriteLine("Press 0 to return to first page");
+            System.Console.WriteLine("======================================================");
+
+
+            System.Console.ResetColor();
+        }
+
+        public void DisplayReroll(Game game)
+        {
+            
+            if (game.ChangetwoTimes())
             {
                 System.Console.BackgroundColor = ConsoleColor.DarkRed;
                 System.Console.WriteLine("YOU have Used All YOUR REROLL press 7 for Submit available score sheet");
             }
-            System.Console.ResetColor();
+            Console.ResetColor();
         }
+
         public void showResult(int sum)
         {
 

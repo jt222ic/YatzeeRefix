@@ -26,10 +26,8 @@ namespace Yatzee.View
             this.player = player;
             this.show = show;
             this.PlayerList = PlayerList;
-            game = new Game();
-             
+            game = new Game(player);
 
-            
         }
         public void PerFormFirstRoll()
         {
@@ -44,7 +42,7 @@ namespace Yatzee.View
                 if (Choice == 1)
                 {
                     game.Dices = game.performFirstRoll();
-                   ChoiceOfReRoll();
+                    ChoiceOfReRoll();
                 }
             }
             catch
@@ -54,23 +52,22 @@ namespace Yatzee.View
         }
         public void ChoiceOfReRoll()
         {
-            show.DisplayRoll(game.Dices, game.idle());
+            show.DisplayRoll(game.Dices);
             try
             {
                 do
                 {
-                   
+                    string NewReRoll = show.ReturnDicePicks();
+                    int DiceChoice = int.Parse(NewReRoll);
+
+                    if (DiceChoice == 7)
+                    {
+                        player = GameChoices(PlayerList, player);
+
+                    }
+
                     if (!game.LockDiceToss)
                     {
-                        string NewReRoll = show.ReturnDicePicks();
-                        int DiceChoice = int.Parse(NewReRoll);
-
-                        if (DiceChoice == 7)
-                        {
-                            player = GameChoices(PlayerList, player);
-                           
-                        }
-
                         switch (DiceChoice)
                         {
                             case 0:
@@ -97,7 +94,8 @@ namespace Yatzee.View
                                 break;
                             case 6:
                                 game.ChangetwoTimes();
-                                show.DisplayRoll(game.Dices, game.ChangetwoTimes());
+                                show.DisplayRoll(game.Dices);
+                                show.DisplayReroll(game);
                                 break;
                         }
                     }
@@ -146,46 +144,37 @@ namespace Yatzee.View
 
                     switch (RuleChoice)
                     {
-                        case 1:
+                        case 1:                             // solution alternative 1
                             PlayerValue = 1;
-                            score = game.getscore(PlayerValue);                           // alternative solution 2
-                                                                                        // player.GetOne = game.SubmitScore(game.Dices, PlayerValue);                      // to be able to store information in Playerclass to save it to DAL
-                                                                                       //player.GetSum = player.GetOne;
-
-                        
-                                                                                                               // the collection of sum of each ruule6
-                            break;
+                            score = game.getscore(PlayerValue);                                             
+                        break;
                         case 2:
                             PlayerValue = 2;
-                            player.GetTwo = game.SubmitScore(game.Dices, PlayerValue);            // alternative solution 1
-                            player.GetSum = player.GetTwo;
-                            
+                           
+                        score = game.getscore(PlayerValue);
+
                         break;
 
                         case 3:
                             PlayerValue = 3;
-                            player.GetThree = game.SubmitScore(game.Dices, PlayerValue);
-                            player.GetSum = player.GetThree;
-                           
+                            score = game.getscore(PlayerValue);
+
                         break;
 
                         case 4:
                             PlayerValue = 4;
-                            player.GetFour = game.SubmitScore(game.Dices, PlayerValue);
-                            player.GetSum = player.GetFour;
-                           
-                            break;
+                            score = game.getscore(PlayerValue);
+
+                        break;
 
                         case 5:
                             PlayerValue = 5;
-                            player.GetFive = game.SubmitScore(game.Dices, PlayerValue);
-                            player.GetSum = player.GetFive;
-                            break;
+                            score = game.getscore(PlayerValue);
+                        break;
                         case 6:
-                            PlayerValue = 6;
-                            player.GetSix = game.SubmitScore(game.Dices, PlayerValue);
-                            player.GetSum = player.GetSix;
-                            break;
+                            PlayerValue = 6;   
+                            score = game.getscore(PlayerValue);
+                        break;
                         default: return;
                     }
                 }
@@ -193,12 +182,10 @@ namespace Yatzee.View
                 {
                     show.CatchNullArgument();
                 }
-                game.GatherScore(score);
-               // player.GetTotalScore += player.GetSum;
-                show.showResult(score);
+            show.showResult(score);
             }                                                                          // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
         
-        public void LowerSection()
+        public void LowerSection()                                                                   // solution alternative 2
         {
             string lowerchoices = show.GetInput();
             int LowerChoice = int.Parse(lowerchoices);

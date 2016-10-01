@@ -23,26 +23,50 @@ namespace Yatzee.Model
         {
             return Dice.Roll();
         }
-        Player player = new Player("");
-        public Game()
+        Player player;
+
+
+        public Game(Player p_player)
         {
-        
+           player = p_player;
         }
-        public int getscore(int PlayerValue)                 // alternative solution 2//  // low cohesion//
+        public int getscore(int PlayerValue)                                                    // alternative solution 2//  // low cohesion//
         {
-            player.GetOne = SubmitScore(Dices, PlayerValue);                         // to be able to store information in Playerclass to save it to DAL
-            player.GetSum = player.GetOne;
+            if (PlayerValue == 1)
+            {
+                player.GetOne = SubmitScore(Dices, PlayerValue);                                     
+                player.GetSum = player.GetOne;
+            }
+            else if(PlayerValue == 2)
+            {
+                player.GetTwo = SubmitScore(Dices, PlayerValue);
+                player.GetSum = player.GetTwo;
+            }
+            else if(PlayerValue == 3)
+            {
+                player.GetThree = SubmitScore(Dices, PlayerValue);
+                player.GetSum = player.GetThree;
+            }
+            else if (PlayerValue == 4)
+            {
+                player.GetFour = SubmitScore(Dices, PlayerValue);
+                player.GetSum = player.GetFour;
+            }
+            else if (PlayerValue == 5)
+            {
+                player.GetFive = SubmitScore(Dices, PlayerValue);
+                player.GetSum = player.GetFive;
+            }
+            else if (PlayerValue == 6)
+            {
+                player.GetSix = SubmitScore(Dices, PlayerValue);
+                player.GetSum = player.GetSix; 
+            }
+
+            GatherScore(player.GetSum);
             return SubmitScore(Dices, PlayerValue);
-        }                       // cluster fuck because there are 2 many rules // // alternative solution 1 //  
-
+        }                                                                                      // cluster fuck because there are 2 many rules // // alternative solution 1 //  
         
-        public void Boxischecked()
-        {
-            
-           // Predicate<Player> name = (Player player) => { return player.m_bHoldState == true; };
-
-
-        }
         public void GatherScore(int score)           
         {
             player.GetTotalScore += score;
