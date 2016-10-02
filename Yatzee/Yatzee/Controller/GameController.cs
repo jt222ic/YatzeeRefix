@@ -21,6 +21,7 @@ namespace Yatzee.View
         int score;
         bool inMenu = true;
 
+
         public GameController( List<Player> PlayerList, Player player, ViewStatus show)
         {
            
@@ -32,9 +33,8 @@ namespace Yatzee.View
         }
         public void PerFormFirstRoll()
         {
-
             try
-            {
+            { 
                 do
                 {
                     show.DisplayFirstPage();
@@ -48,10 +48,8 @@ namespace Yatzee.View
                         ChoiceOfReRoll();
                     }
                 }
-                while (show.returnInput());
+                while (true);
             }
-
-
             catch
             {
                 show.CatchNullArgument();
@@ -64,6 +62,8 @@ namespace Yatzee.View
             {
                 do
                 {
+                    
+                    
                     string NewReRoll = show.ReturnDicePicks();
                     int DiceChoice = int.Parse(NewReRoll);
 
@@ -77,8 +77,7 @@ namespace Yatzee.View
                     {
                         switch (DiceChoice)
                         {
-                            case 0:
-                               return;
+                          
                             case 1:
                                 dicenumber = 0;
                                 game.performReroll(dicenumber, game.Dices, player);
@@ -104,10 +103,11 @@ namespace Yatzee.View
                                 show.DisplayRoll(game.Dices);
                                 show.DisplayReroll(game);
                                 break;
+                            
                         }
                     }
                 }
-                while (show.returnInput());
+                while (true);
             }
             catch
             {
@@ -123,23 +123,30 @@ namespace Yatzee.View
                 show.DisplayScore(DAL.getMemberList());
                 show.SectionPick();
                 ViewStatus.Options input = show.GetOptions();
-
+                inMenu = true;
 
                 if (input == ViewStatus.Options.UpperSection)
                 {
-                    UpperSection();
-                    inMenu = false;
+                    
+                 UpperSection();
+                  
                 }
                 else if (input == ViewStatus.Options.LowerSection)
                 {
+                    
                     LowerSection();
                     inMenu = false;
+                 
+                  
                 }
                 if (input == ViewStatus.Options.SUBMIT)
                 {
+                   
                     player = ChangePlayer(PlayerList, player);
                     inMenu = false;
+                    break;
                 }
+               
             }
             while (inMenu);
             return player;
@@ -147,100 +154,114 @@ namespace Yatzee.View
         public void UpperSection()
         {
 
+            
+            do
+            {
                 try
                 {
                     string choices = show.GetInput();
                     int PlayerValue;
                     int RuleChoice = int.Parse(choices);
-               
+
 
                     switch (RuleChoice)
                     {
+
+                        
                         case 1:                             // solution alternative 1
                             PlayerValue = 1;
-                            score = game.getscore(PlayerValue);                                             
-                        break;
+                            score = game.getscore(PlayerValue);
+                            inMenu = true;
+                            
+                            break;
                         case 2:
                             PlayerValue = 2;
-                           
-                        score = game.getscore(PlayerValue);
 
-                        break;
+                            score = game.getscore(PlayerValue);
+
+                            break;
 
                         case 3:
                             PlayerValue = 3;
                             score = game.getscore(PlayerValue);
 
-                        break;
+                            break;
 
                         case 4:
                             PlayerValue = 4;
                             score = game.getscore(PlayerValue);
 
-                        break;
+                            break;
 
                         case 5:
                             PlayerValue = 5;
                             score = game.getscore(PlayerValue);
-                        break;
+                            break;
                         case 6:
-                            PlayerValue = 6;   
+                            PlayerValue = 6;
                             score = game.getscore(PlayerValue);
-                        break;
-                        default: return;
+                            break;
+                        
+                           
                     }
                 }
                 catch
                 {
                     show.CatchNullArgument();
                 }
-            show.showResult(score);
+                show.showResult(score);
+            }
+           
+            while (true);
             }                                                                          // GEt input from view, then send it to model class player to inform the change in result, then return to view to read it out
         
         public void LowerSection()                                                                   // solution alternative 2
         {
-            string lowerchoices = show.GetInput();
-            int LowerChoice = int.Parse(lowerchoices);
-
-            switch (LowerChoice)
+            do
             {
-                case 0:
-                    return;
-                case 1:
+                string lowerchoices = show.GetInput();
+                int LowerChoice = int.Parse(lowerchoices);
 
-                    score = game.GetThreeOfAKind();                                           // to save and to send it to view 
-                    break;
+                switch (LowerChoice)
+                {
+                    case 0:
+                        return;
+                    case 1:
 
-                case 2:
-                    score = game.GetFourOfAKind();
-                    break;
+                        score = game.GetThreeOfAKind();                                           // to save and to send it to view 
+                        break;
 
-                case 3:
-                    score = game.GetFullHouse();
-                    break;
+                    case 2:
+                        score = game.GetFourOfAKind();
+                        break;
 
-                case 4:
-                    score = game.GetSmallStraight();
-                    
-                    
-                    break;
-                case 5:
-                    score = game.GetLargeStraight();
-                    break;
+                    case 3:
+                        score = game.GetFullHouse();
+                        break;
 
-                case 6:
-                    score = game.Getchance();
-                    break;
+                    case 4:
+                        score = game.GetSmallStraight();
 
-                case 7:
-                    score = game.GetYatzee();
-                    break;
 
-                default:
-                    return;
+                        break;
+                    case 5:
+                        score = game.GetLargeStraight();
+                        break;
+
+                    case 6:
+                        score = game.Getchance();
+                        break;
+
+                    case 7:
+                        score = game.GetYatzee();
+                        break;
+
+                    default:
+                        return;
+                }
+                show.showResult(score);
             }
-            player.GetTotalScore += player.GetSum;
-            show.showResult(score);
+            while (true);
         }
         public Player ChangePlayer(List<Player> PlayerList,Player player)
         {

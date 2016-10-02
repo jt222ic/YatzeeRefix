@@ -142,10 +142,6 @@ namespace Yatzee.Model
                 return true;
             }
         }
-        public bool idle()
-        {
-            return false;
-        }
 
     }
 

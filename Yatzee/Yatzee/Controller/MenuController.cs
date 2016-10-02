@@ -15,19 +15,19 @@ namespace Yatzee.Controller
         List<Player> PlayerList = new List<Player>();
         Dice roll;
         IReadOnlyCollection<Player> ListOfPlayers;
-        GameController InGameController;
+      //  GameController InGameController;
 
         public MenuController()
         {
             roll = new Dice();
             show = new ViewStatus();
-            InGameController = new GameController(PlayerList, player, show);
+            //InGameController = new GameController(PlayerList, player, show);
            // PlayerList.Add(player = new Player("Human"));
         }
 
         public void Register()
         {
-            //GameController InGameController = new GameController(ListOfPlayers, PlayerList, player, show);        //if place here you can switch Player
+                  //if place here you can switch Player
             do
             {
                 try
@@ -72,6 +72,7 @@ namespace Yatzee.Controller
                                 }
                                 else
                                 {
+                                    GameController InGameController = new GameController(PlayerList, player, show);
                                     InGameController.PerFormFirstRoll();
                                 }   
                             }
