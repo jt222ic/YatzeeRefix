@@ -15,19 +15,35 @@ namespace Yatzee.Model
         public bool LockDiceToss = false;
         Dice Dice = new Dice();
         public List<int> Dices;
-        
+        int choice = 0;
+
         public List<int> performFirstRoll()
         {
             return Dice.Roll();
         }
-        Player player;
+      //  Player player;
 
 
-        public Game(Player p_player)
+        public Game()
         {
-           player = p_player;
+         
         }
-        public int getscore(int PlayerValue)
+
+        public Player ChangePlayer(List<Player> PlayerList, Player player)
+        {
+
+            Player ChangePlayer = player;
+            ChangePlayer = PlayerList.ElementAt(choice);
+            choice++;
+            if(choice == PlayerList.Count)
+            {
+                choice = 0;
+            }
+            return ChangePlayer;
+        }
+
+    
+    public int getscore(int PlayerValue, Player player)
                                                                 // alternative solution 2//  // low cohesion//
         {
             if (PlayerValue == 1)
@@ -61,66 +77,66 @@ namespace Yatzee.Model
                 player.GetSum = player.GetSix; 
             }
 
-            GatherScore(player.GetSum);
+            GatherScore(player, player.GetSum);
             return SubmitScore(Dices, PlayerValue);
         }
 
-        public int GetThreeOfAKind()
+        public int GetThreeOfAKind(Player player)
         {
-            player.GetThreeOfAKind = SubmitThreeOfAKind(Dices,0);
+            player.GetThreeOfAKind = SubmitThreeOfAKind(Dices, 0);
             player.GetSum = player.GetThreeOfAKind;
-            GatherScore(player.GetSum);
+            GatherScore(player, player.GetSum);
             return SubmitScore(Dices, 0);
         }
-        public int GetFourOfAKind()
+        public int GetFourOfAKind(Player player)
         {
             player.GetFourOfAKind = SubmitFourOfaKind(Dices, 0);
             player.GetSum = player.GetFourOfAKind;
-            GatherScore(player.GetSum);
+            GatherScore(player, player.GetSum);
             return SubmitScore(Dices, 0);
         }
-        public int GetFullHouse()
+        public int GetFullHouse(Player player)
         {
             player.GetFullHouse = SubmitFullHouse(Dices, 0);
             player.GetSum = player.GetFullHouse;
-            GatherScore(player.GetSum);
+            GatherScore(player, player.GetSum);
             return SubmitScore(Dices, 0);
 
         }
-        public int GetSmallStraight()
+        public int GetSmallStraight(Player player)
         {
-            player.GetSmallStraight = SubmitSmallStraight(Dices,0);
+            player.GetSmallStraight = SubmitSmallStraight(Dices, 0);
             player.GetSum = player.GetSmallStraight;
-            GatherScore(player.GetSum);
-            return SubmitScore(Dices,0);
-
-        }
-        public int GetLargeStraight()
-        {
-            player.GetLargeStraight = SubmitLargeStraight(Dices,0);
-            player.GetSum = player.GetLargeStraight;
-            GatherScore(player.GetSum);
+            GatherScore(player, player.GetSum);
             return SubmitScore(Dices, 0);
 
         }
-        public int Getchance()
+        public int GetLargeStraight(Player player)
+        {
+            player.GetLargeStraight = SubmitLargeStraight(Dices, 0);
+            player.GetSum = player.GetLargeStraight;
+            GatherScore(player, player.GetSum);
+            return SubmitScore(Dices, 0);
+
+        }
+        public int Getchance(Player player)
         {
             player.GetChance = SubmitChance(Dices, 0);
             player.GetSum = player.GetChance;
-            GatherScore(player.GetSum);
+            GatherScore(player, player.GetSum);
             return SubmitScore(Dices, 0);
 
         }
-        public int GetYatzee()
+        public int GetYatzee(Player player)
         {
-            player.GetYatzee = SubmitYatzee(Dices,0);
+            player.GetYatzee = SubmitYatzee(Dices, 0);
             player.GetSum = player.GetYatzee;
-            GatherScore(player.GetSum);
-            return SubmitScore(Dices,0);
+            GatherScore(player,player.GetSum);
+            return SubmitScore(Dices, 0);
         }
 
 
-        public void GatherScore(int score)           
+        public void GatherScore(Player player,int score)
         {
             player.GetTotalScore += score;
         }

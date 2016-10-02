@@ -99,10 +99,10 @@ namespace Yatzee.View
             Console.ResetColor();
         }
 
-        public void showResult(int sum)
+        public void showResult(int sum, Player player)
         {
 
-            System.Console.WriteLine("!!!!!You get {0} !!!!!!", sum);
+            System.Console.WriteLine("!!!!!{0} get  {1} !!!!!!", player.GetName,sum);
         }
         public void DisplayScore(IReadOnlyCollection<Player> list)                   // view Ireads from Model
         {
