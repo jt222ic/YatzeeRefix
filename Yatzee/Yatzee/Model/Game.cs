@@ -16,19 +16,10 @@ namespace Yatzee.Model
         Dice Dice = new Dice();
         public List<int> Dices;
         int choice = 0;
-
         public List<int> performFirstRoll()
         {
             return Dice.Roll();
         }
-      //  Player player;
-
-
-        public Game()
-        {
-         
-        }
-
         public Player ChangePlayer(List<Player> PlayerList, Player player)
         {
 
