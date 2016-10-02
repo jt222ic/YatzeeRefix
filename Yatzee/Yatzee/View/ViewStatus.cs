@@ -91,7 +91,7 @@ namespace Yatzee.View
         public void DisplayReroll(Game game)
         {
             
-            if (game.ChangetwoTimes())
+            if (game.RerolltwoTimes())
             {
                 System.Console.BackgroundColor = ConsoleColor.DarkRed;
                 System.Console.WriteLine("YOU have Used All YOUR REROLL press 7 for Submit available score sheet");
@@ -104,52 +104,52 @@ namespace Yatzee.View
 
             System.Console.WriteLine("!!!!!{0} get  {1} !!!!!!", player.GetName,sum);
         }
-        public void DisplayScore(IReadOnlyCollection<Player> list)                   // view Ireads from Model
+        public void DisplayScore(Player player)                   // view Ireads from Model
         {
             Console.Clear();
-            foreach (Player member in list)
-            {
+
+
                 System.Console.WriteLine("                                     ");
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine(" ****Yatzee****||{0}               ||", member.GetName);
+                System.Console.WriteLine(" ****Yatzee****||{0}               ||", player.GetName);
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("============UpperSection=============");
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("         Ones         ||{0}       ||", member.GetOne);
+                System.Console.WriteLine("         Ones         ||{0}       ||", player.GetOne);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("         Twos         ||{0}       ||", member.GetTwo);
+                System.Console.WriteLine("         Twos         ||{0}       ||", player.GetTwo);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("         Threes       ||{0}       ||", member.GetThree);
+                System.Console.WriteLine("         Threes       ||{0}       ||", player.GetThree);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("         Fours        ||{0}       ||", member.GetFour);
+                System.Console.WriteLine("         Fours        ||{0}       ||", player.GetFour);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("         Five         ||{0}       ||", member.GetFive);
+                System.Console.WriteLine("         Five         ||{0}       ||", player.GetFive);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("         Sixes        ||{0}       ||", member.GetSix);
+                System.Console.WriteLine("         Sixes        ||{0}       ||", player.GetSix);
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("         Sum          ||          ||");
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("         Bonus        ||{0}       ||", member.GetBonus);
+                System.Console.WriteLine("         Bonus        ||{0}       ||", player.GetBonus);
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("============LowerSection=============");
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Three of a Kind       ||{0}          ||", member.GetThreeOfAKind);
+                System.Console.WriteLine("Three of a Kind       ||{0}          ||", player.GetThreeOfAKind);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Four of a Kind        ||{0}          ||", member.GetFourOfAKind);
+                System.Console.WriteLine("Four of a Kind        ||{0}          ||", player.GetFourOfAKind);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Full House            ||{0}          ||", member.GetFullHouse);
+                System.Console.WriteLine("Full House            ||{0}          ||", player.GetFullHouse);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Small Straight        ||{0}          ||", member.GetSmallStraight);
+                System.Console.WriteLine("Small Straight        ||{0}          ||", player.GetSmallStraight);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Large Straight        ||{0}          ||", member.GetLargeStraight);
+                System.Console.WriteLine("Large Straight        ||{0}          ||", player.GetLargeStraight);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Chance                ||{0}          ||", member.GetChance);
+                System.Console.WriteLine("Chance                ||{0}          ||", player.GetChance);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("YAHTZEE               ||{0}          ||", member.GetYatzee);
+                System.Console.WriteLine("YAHTZEE               ||{0}          ||", player.GetYatzee);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("TOTALSCORE            ||{0}          ||", member.GetTotalScore);
-            }
+                System.Console.WriteLine("TOTALSCORE            ||{0}          ||", player.GetTotalScore);
+            
         }
         public void DisplayRegistration()
         {

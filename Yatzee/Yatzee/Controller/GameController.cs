@@ -101,7 +101,7 @@ namespace Yatzee.View
                                 game.performReroll(dicenumber, game.Dices, player);
                                 break;
                             case 6:
-                                game.ChangetwoTimes();
+                                game.RerolltwoTimes();
                                 show.DisplayRoll(game.Dices);
                                 show.DisplayReroll(game);
                                 break;
@@ -122,26 +122,24 @@ namespace Yatzee.View
             
             do
             {
-                show.DisplayScore(DAL.getMemberList());
+                //show.DisplayScore(DAL.getMemberList());
+                show.DisplayScore(player);
                 ListOfPlayers = DAL.getMemberList();
                 show.CompactList(ListOfPlayers);
                 show.SectionPick();
                 ViewStatus.Options input = show.GetOptions();
                 inMenu = true;
                 if (input == ViewStatus.Options.UpperSection)
-                {
-                    
-                 UpperSection();
+                { 
+                     UpperSection();
                     player = game.ChangePlayer(PlayerList, player);
                     inMenu = false;
                     break;
-                  
-                  
                 }
                 else if (input == ViewStatus.Options.LowerSection)
                 {
-                    
                     LowerSection();
+                    player = game.ChangePlayer(PlayerList, player);
                     inMenu = false;
                     break;
                   
@@ -154,7 +152,6 @@ namespace Yatzee.View
         public void UpperSection()
         {
            
-            
             do
             {
                

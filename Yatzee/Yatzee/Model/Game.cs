@@ -22,7 +22,6 @@ namespace Yatzee.Model
         }
         public Player ChangePlayer(List<Player> PlayerList, Player player)
         {
-
             Player ChangePlayer = player;
             ChangePlayer = PlayerList.ElementAt(choice);
             choice++;
@@ -34,8 +33,10 @@ namespace Yatzee.Model
         }
 
     
-    public int getscore(int PlayerValue, Player player)
-                                                                // alternative solution 2//  // low cohesion//
+
+
+        // get set //
+    public int getscore(int PlayerValue, Player player)                                                     // alternative solution 2//  // low cohesion//
         {
             if (PlayerValue == 1)
             {
@@ -126,7 +127,6 @@ namespace Yatzee.Model
             return SubmitScore(Dices, 0);
         }
 
-
         public void GatherScore(Player player,int score)
         {
             player.GetTotalScore += score;
@@ -136,7 +136,7 @@ namespace Yatzee.Model
         {
             return Dice.ReRoll(Dicenumber, Dices, player);
         }
-        public bool ChangetwoTimes()
+        public bool RerolltwoTimes()
         {
             if (MaximumToss > 0)
             {
