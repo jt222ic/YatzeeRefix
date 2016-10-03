@@ -49,6 +49,7 @@ namespace Yatzee.View
         public bool returnInput()
         {
             if(Console.ReadKey(true).Key != ConsoleKey.Escape)                            // reads inputKey if not on Key Escape then continue looping the switch case. For controller
+
             {
                 return true;
             }
@@ -111,7 +112,9 @@ namespace Yatzee.View
 
                 System.Console.WriteLine("                                     ");
                 System.Console.WriteLine("=====================================");
+            System.Console.ForegroundColor = ConsoleColor.Red;
                 System.Console.WriteLine(" ****Yatzee****||{0}               ||", player.GetName);
+            Console.ResetColor();
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("============UpperSection=============");
                 System.Console.WriteLine("=====================================");

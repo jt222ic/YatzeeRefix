@@ -15,12 +15,16 @@ namespace Yatzee.Controller
         List<Player> PlayerList = new List<Player>();
         Dice roll;
         IReadOnlyCollection<Player> ListOfPlayers;
-      //  GameController InGameController;
+        int i;
+        Player currentplayer;
+        CurrentPlayer LoadPlayer;
+        //  GameController InGameController;
 
         public MenuController()
         {
             roll = new Dice();
             show = new ViewStatus();
+            LoadPlayer = new CurrentPlayer();
             //InGameController = new GameController(PlayerList, player, show);
            // PlayerList.Add(player = new Player("Human"));
         }
@@ -56,11 +60,12 @@ namespace Yatzee.Controller
                             show.CompactList(DAL.getMemberList());
                             break;
                         case 5:
-                            DAL.SaveToFile();
+                             DAL.SaveToFile();
                             break;
 
                         case 6:
                             PlayerList = DAL.Initialize();
+                           player = LoadPlayer.getcurrentPlayer(PlayerList);
                             break;
 
                         case 7:
@@ -91,6 +96,7 @@ namespace Yatzee.Controller
             }
             while (show.returnInput());
         }
+
 
         public void RemovePlayer()
         {

@@ -20,7 +20,7 @@ namespace Yatzee.Model
         {
             return Dice.Roll();
         }
-        public Player ChangePlayer(List<Player> PlayerList, Player player)
+        public Player NextPlayer(List<Player> PlayerList, Player player)
         {
             Player ChangePlayer = player;
             ChangePlayer = PlayerList.ElementAt(choice);

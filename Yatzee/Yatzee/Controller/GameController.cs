@@ -132,14 +132,14 @@ namespace Yatzee.View
                 if (input == ViewStatus.Options.UpperSection)
                 { 
                      UpperSection();
-                    player = game.ChangePlayer(PlayerList, player);
+                    player = game.NextPlayer(PlayerList, player);
                     inMenu = false;
                     break;
                 }
                 else if (input == ViewStatus.Options.LowerSection)
                 {
                     LowerSection();
-                    player = game.ChangePlayer(PlayerList, player);
+                    player = game.NextPlayer(PlayerList, player);
                     inMenu = false;
                     break;
                   

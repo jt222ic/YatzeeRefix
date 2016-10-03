@@ -59,6 +59,7 @@
     <Compile Include="Model\Interface\ThreeOfaKind.cs" />
     <Compile Include="Model\Interface\Yatzee.cs" />
     <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\CurrentPlayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\ViewStatus.cs" />
