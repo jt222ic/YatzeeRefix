@@ -133,7 +133,7 @@ namespace Yatzee.View
                 inMenu = true;
                 if (input == ViewStatus.Options.UpperSection)
                 { 
-                     UpperSection();
+                    UpperSection();
                     player = game.NextPlayer(PlayerList, player);
                     inMenu = false;
                     break;
@@ -153,7 +153,6 @@ namespace Yatzee.View
         }
         public void UpperSection()
         {
-           
             do
             {
                

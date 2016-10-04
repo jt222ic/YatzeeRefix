@@ -80,7 +80,7 @@ namespace Yatzee.View
             }
             Console.ResetColor();
             System.Console.WriteLine("======================================================");                           // screen to perform re-roll
-            System.Console.WriteLine("Press 1- 5 to switch each Dices and press Enter");
+            System.Console.WriteLine("Press 1~5 select a dice for reroll");
             System.Console.WriteLine("Press 6 to perform re-roll");
             System.Console.WriteLine("Press 7 to submit to scoresheet");
             System.Console.WriteLine("Press 0 to return to first page");
@@ -113,9 +113,9 @@ namespace Yatzee.View
 
                 System.Console.WriteLine("                                     ");
                 System.Console.WriteLine("=====================================");
-               System.Console.ForegroundColor = ConsoleColor.Green;
+                System.Console.ForegroundColor = ConsoleColor.Green;
                 System.Console.WriteLine(" ****Yatzee****||{0}               ||", player.GetName);
-               Console.ResetColor();
+                 System.Console.ResetColor();
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("============UpperSection=============");
                 System.Console.WriteLine("=====================================");
@@ -138,19 +138,19 @@ namespace Yatzee.View
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("============LowerSection=============");
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Three of a Kind       ||{0}          ||", player.GetThreeOfAKind);
+                System.Console.WriteLine("1.Three of a Kind       ||{0}          ||", player.GetThreeOfAKind);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Four of a Kind        ||{0}          ||", player.GetFourOfAKind);
+                System.Console.WriteLine("2.Four of a Kind        ||{0}          ||", player.GetFourOfAKind);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Full House            ||{0}          ||", player.GetFullHouse);
+                System.Console.WriteLine("3.Full House            ||{0}          ||", player.GetFullHouse);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Small Straight        ||{0}          ||", player.GetSmallStraight);
+                System.Console.WriteLine("4.Small Straight        ||{0}          ||", player.GetSmallStraight);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Large Straight        ||{0}          ||", player.GetLargeStraight);
+                System.Console.WriteLine("5.Large Straight        ||{0}          ||", player.GetLargeStraight);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("Chance                ||{0}          ||", player.GetChance);
+                System.Console.WriteLine("6.Chance                ||{0}          ||", player.GetChance);
                 System.Console.WriteLine("=====================================");
-                System.Console.WriteLine("YAHTZEE               ||{0}          ||", player.GetYatzee);
+                System.Console.WriteLine("7.YAHTZEE               ||{0}          ||", player.GetYatzee);
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("TOTALSCORE            ||{0}          ||", player.GetTotalScore);
             
@@ -184,7 +184,7 @@ namespace Yatzee.View
         public string ReturnDicePicks()
         {
 
-          System.Console.WriteLine("===it is your picked DICE==");
+          System.Console.WriteLine("===Dice selected==");
            return System.Console.ReadLine();
         }
         public string ReturnInfo()
@@ -206,7 +206,7 @@ namespace Yatzee.View
 
 
 
-        // error handling //   write out in string format to have a clue where the fault is at
+        // error handling //  
 
         public void CatchArgument()                            // occasion use finding hidden fault in function
         {

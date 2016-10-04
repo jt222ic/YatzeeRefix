@@ -11,29 +11,6 @@ namespace Yatzee.Model
     {
         GetRule Rules = new GetRule();
 
-        internal GetRule GetRule
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        internal GetRule GetRule1
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
 
         public int SubmitScore(List<int> ListofDice, int PlayerSelectValue)
         {
@@ -68,7 +45,7 @@ namespace Yatzee.Model
             return Rules.getYatzee().DiceScore(ListofDice, 0);
         }
 
-        //  public int SubmitMaxyYatzee(List<int>ListofDice, int PlayerSelectValue)    include this if you want maxyYatzy
+        //  public int SubmitMaxyYatzee(List<int>ListofDice, int PlayerSelectValue)    include this if you want to implement maxyYatzy
         // {
         //     return Rules.GetMaxyYatzee().DiceScore(ListofDice, 0);
         // }

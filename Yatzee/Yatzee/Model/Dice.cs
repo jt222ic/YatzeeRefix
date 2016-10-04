@@ -10,7 +10,7 @@ namespace Yatzee.Model
     {
         Random random = new Random();
         private int i;
-        public int RollNumber;
+        private int RollNumber;
         List<int> unique;
         List<int> newDices = new List<int>();
 

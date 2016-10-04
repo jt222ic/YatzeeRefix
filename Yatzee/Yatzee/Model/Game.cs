@@ -34,10 +34,6 @@ namespace Yatzee.Model
             }
             return ChangePlayer;
         }
-
-    
-
-
         // get set //
     public int getscore(int PlayerValue, Player player)                                                     // alternative solution 2//  // low cohesion//
         {

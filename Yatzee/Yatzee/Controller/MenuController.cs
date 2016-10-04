@@ -15,7 +15,7 @@ namespace Yatzee.Controller
         List<Player> PlayerList = new List<Player>();
         IReadOnlyCollection<Player> ListOfPlayers;
         CurrentPlayer LoadPlayer;
-        //  GameController InGameController;
+       
 
         public MenuController()
         {
