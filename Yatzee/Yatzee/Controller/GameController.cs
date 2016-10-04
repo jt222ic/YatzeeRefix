@@ -168,7 +168,7 @@ namespace Yatzee.View
 
                         
                         case 1:
-                                                                           // solution alternative 1
+                                                                      // solution alternative 1
                             PlayerValue = 1;
                             score = game.getscore(PlayerValue, player);
                             InUpper = false;

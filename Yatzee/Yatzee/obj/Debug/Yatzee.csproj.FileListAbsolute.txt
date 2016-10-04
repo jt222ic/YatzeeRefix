@@ -21,3 +21,6 @@ C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\obj\Debug\Yatzee.pdb
 C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\obj\Debug\Yatzee.csprojResolveAssemblyReference.cache
 C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\bin\Debug\Yatzee.exe
 C:\Users\jan\Desktop\Yatzee-master\Yatzee\Yatzee\bin\Debug\Yatzee.pdb
+C:\Users\Hitstorm13\Documents\GitHub\YatzeeRefix\Yatzee\Yatzee\bin\Debug\Yatzee.exe.config
+C:\Users\Hitstorm13\Documents\GitHub\YatzeeRefix\Yatzee\Yatzee\obj\Debug\Yatzee.exe
+C:\Users\Hitstorm13\Documents\GitHub\YatzeeRefix\Yatzee\Yatzee\obj\Debug\Yatzee.pdb
