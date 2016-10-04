@@ -9,6 +9,19 @@ namespace Yatzee.Model.Interface
     class FullHouse : IGameRules
     {
         int Sum;
+
+        internal IGameRules IGameRules
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         //int TotalScore;
 
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValues)

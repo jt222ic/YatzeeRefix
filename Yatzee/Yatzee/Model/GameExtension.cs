@@ -10,6 +10,31 @@ namespace Yatzee.Model
     public abstract class GameExtension
     {
         GetRule Rules = new GetRule();
+
+        internal GetRule GetRule
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal GetRule GetRule1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public int SubmitScore(List<int> ListofDice, int PlayerSelectValue)
         {
             return Rules.getAddupDice().DiceScore(ListofDice, PlayerSelectValue);

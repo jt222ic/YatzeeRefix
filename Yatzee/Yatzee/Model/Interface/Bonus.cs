@@ -12,6 +12,19 @@ namespace Yatzee.Model.Interface
         int BonusSum;
         int TotalScore;
         int BonusPoint;
+
+        internal IGameRules IGameRules
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValues)
         {
             if (BonusSum > 75)

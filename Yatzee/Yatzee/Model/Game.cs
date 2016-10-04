@@ -16,6 +16,55 @@ namespace Yatzee.Model
         Dice Dice = new Dice();
         public List<int> Dices;
         int choice = 0;
+
+        public Player Player
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Dice Dice1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Player Player1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Dice Dice2
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public List<int> performFirstRoll()
         {
             return Dice.Roll();

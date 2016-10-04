@@ -11,6 +11,30 @@ namespace Yatzee.Model.Interface
 
         int Sum;
 
+        internal IGameRules IGameRules
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal IGameRules IGameRules1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public int DiceScore(List<int> ListOfDice, int PlayerSelectValues)
         {
             Sum = 0;

@@ -24,7 +24,7 @@ namespace Yatzee.View
         bool inLower;
 
 
-        public GameController( List<Player> PlayerList, Player player, ViewStatus show)
+        public GameController(List<Player> PlayerList, Player player, ViewStatus show)
         {
            
             this.player = player;
@@ -33,6 +33,55 @@ namespace Yatzee.View
             game = new Game();
 
         }
+
+        internal Game Game
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal Game Game1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal ViewStatus ViewStatus
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal ViewStatus ViewStatus1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public void PerFormFirstRoll()
         {
             try

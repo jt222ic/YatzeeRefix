@@ -16,6 +16,29 @@ namespace Yatzee.View
         private const char LOWER_KEY = 'w';
         private const char SUBMIT_KEY = 's';
 
+        public Player Player
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Player Player1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
 
         public enum Options
         {
@@ -67,7 +90,7 @@ namespace Yatzee.View
             System.Console.WriteLine("LowerSection");
         }
      
-        public void DisplayRoll(List<int> ListaOverDice)        //                    // from model bool // hidden dependencies
+        public void DisplayRoll(List<int> ListaOverDice)        //                    // from model bool // hidden dependencies?
         {
             Console.Clear();
             int DifferentDice = 0;
@@ -112,9 +135,9 @@ namespace Yatzee.View
 
                 System.Console.WriteLine("                                     ");
                 System.Console.WriteLine("=====================================");
-            System.Console.ForegroundColor = ConsoleColor.Red;
+               System.Console.ForegroundColor = ConsoleColor.Green;
                 System.Console.WriteLine(" ****Yatzee****||{0}               ||", player.GetName);
-            Console.ResetColor();
+               Console.ResetColor();
                 System.Console.WriteLine("=====================================");
                 System.Console.WriteLine("============UpperSection=============");
                 System.Console.WriteLine("=====================================");
@@ -207,10 +230,6 @@ namespace Yatzee.View
 
         // error handling //   write out in string format to have a clue where the fault is at
 
-        public void Catch()                                                       // catch all the wrong inputs
-        {
-            System.Console.WriteLine("enter right key number and press 0 to return");
-        }
         public void CatchArgument()                            // occasion use finding hidden fault in function
         {
             System.Console.WriteLine("There are no players registered");                

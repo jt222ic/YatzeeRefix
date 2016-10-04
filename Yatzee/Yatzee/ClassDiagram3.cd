@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Everyrules are associated to interface IGAMERULE">
+    <Position X="1.065" Y="4.128" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="MODELCLASS = Rules,Player,Dices&#xD;&#xA;Model/InterFace:IGameRules,&#xD;&#xA;Model/DAL : DAL&#xD;&#xA;">
+    <Position X="5.82" Y="3.513" Height="1.086" Width="1.7" />
+  </Comment>
+  <Comment CommentText="VIEWCLASS = ViewStatus&#xD;&#xA;">
+    <Position X="8.736" Y="6.228" Height="0.428" Width="1.7" />
+  </Comment>
+  <Comment CommentText="CONTROLLER =&#xD;&#xA;MenuController&#xD;&#xA;gameController&#xD;&#xA;">
+    <Position X="14.32" Y="0.749" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="Yatzee.View.GameController" Collapsed="true">
+    <Position X="13.25" Y="2" Width="1.5" />
+    <AssociationLine Name="ViewStatus" Type="Yatzee.View.ViewStatus" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="2.312" />
+        <Point X="15.125" Y="2.312" />
+        <Point X="15.125" Y="7.187" />
+        <Point X="11.75" Y="7.187" />
+        <Point X="11.75" Y="6.812" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ViewStatus1" Type="Yatzee.View.ViewStatus" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.75" Y="2.312" />
+        <Point X="15.125" Y="2.312" />
+        <Point X="15.125" Y="7.187" />
+        <Point X="11.75" Y="7.187" />
+        <Point X="11.75" Y="6.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true" ManuallySized="true">
+        <Position X="0.482" Y="0.432" Height="0.182" Width="0.5" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAggGAAAAAQBAAJCAAAAQgAAAAJBAAgAgAhAAg=</HashCode>
+      <FileName>Controller\GameController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Game1" />
+      <Property Name="ViewStatus" />
+      <Property Name="ViewStatus1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Yatzee.View.ViewStatus" Collapsed="true">
+    <Position X="10.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARAIBgEAAAACAQAAgEAAgAASgAGAAAAAAAABAUAAAQA=</HashCode>
+      <FileName>View\ViewStatus.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Yatzee.Controller.MenuController" Collapsed="true">
+    <Position X="13.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAgABAAAAAAgBAAAAAAAAABAAABBAAAgwAAAAA=</HashCode>
+      <FileName>Controller\MenuController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GameController1" />
+      <Property Name="CurrentPlayer1" />
+      <Property Name="Player1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Yatzee.Model.CurrentPlayer" Collapsed="true">
+    <Position X="13.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CurrentPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yatzee.Model.DAL" Collapsed="true">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAgAAAAAQAAAEAAAAQAAAAAAAIAAAAAAAAAEAI=</HashCode>
+      <FileName>Model\DAL.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yatzee.Model.Dice" Collapsed="true">
+    <Position X="8.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAADAAAAAQAAAAAIAAIAQAAQAAAAA=</HashCode>
+      <FileName>Model\Dice.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Yatzee.Model.Game" Collapsed="true">
+    <Position X="10.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAEIgQCAEgAAACAAIAABAASAgAgAAhUEAAAA=</HashCode>
+      <FileName>Model\Game.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Player1" />
+      <Property Name="Dice2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Yatzee.Model.GameExtension" Collapsed="true">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIEAAAIBAAAAAEAAACAQAACEAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Model\GameExtension.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="GetRule1" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Yatzee.Model.Player" Collapsed="true">
+    <Position X="10.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAwQAAUgBAAKAEAACBwgYAJQAKASggQAQEBQQgLAQ=</HashCode>
+      <FileName>Model\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Yatzee.Model.Interface.AddupDice" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAACAAAAAAAAAAgQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\AddupDice.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.Bonus" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAAAI=</HashCode>
+      <FileName>Model\Interface\Bonus.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.Chance" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAIAAAAAAAAAAAAAAAAQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\Chance.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.FourOfaKind" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAgAAAAAAAAAAAAAQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\FourOfaKind.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.FullHouse" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\FullHouse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.GetRule" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <AssociationLine Name="Chance" Type="Yatzee.Model.Interface.Chance" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="0.5" />
+        <Point X="8.75" Y="0.125" />
+        <Point X="6.125" Y="0.125" />
+        <Point X="6.125" Y="0.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FullHouse" Type="Yatzee.Model.Interface.FullHouse" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="1.062" />
+        <Point X="8.75" Y="1.26" />
+        <Point X="6.188" Y="1.26" />
+        <Point X="6.188" Y="1.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="AddupDice" Type="Yatzee.Model.Interface.AddupDice" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="0.5" />
+        <Point X="8.75" Y="0.125" />
+        <Point X="2.25" Y="0.125" />
+        <Point X="2.25" Y="0.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="FourOfaKind" Type="Yatzee.Model.Interface.FourOfaKind" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="1.062" />
+        <Point X="8.75" Y="1.26" />
+        <Point X="4.25" Y="1.26" />
+        <Point X="4.25" Y="1.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="SmallStraight" Type="Yatzee.Model.Interface.SmallStraight" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="1.062" />
+        <Point X="8.75" Y="2.26" />
+        <Point X="2.188" Y="2.26" />
+        <Point X="2.188" Y="2.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="MaxyYatzee" Type="Yatzee.Model.Interface.MaxyYatzee" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="1.062" />
+        <Point X="8.75" Y="2.26" />
+        <Point X="4.25" Y="2.26" />
+        <Point X="4.25" Y="2.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="ThreeOfaKind" Type="Yatzee.Model.Interface.ThreeOfaKind" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="1.062" />
+        <Point X="8.75" Y="2.26" />
+        <Point X="6.25" Y="2.26" />
+        <Point X="6.25" Y="2.5" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="Yatzee" Type="Yatzee.Model.Interface.Yatzee" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.75" Y="1.062" />
+        <Point X="8.75" Y="2.335" />
+        <Point X="7.961" Y="2.335" />
+        <Point X="7.961" Y="3.26" />
+        <Point X="4.188" Y="3.26" />
+        <Point X="4.188" Y="3.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAQCABgEAAACAQAAgIAAAIgAAAAUAAEAAZAAAIAA=</HashCode>
+      <FileName>Model\Interface\GetRule.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Chance" />
+      <Property Name="FullHouse" />
+      <Property Name="Bonus" />
+      <Property Name="AddupDice" />
+      <Property Name="FourOfaKind" />
+      <Property Name="LargeStraight" />
+      <Property Name="SmallStraight" />
+      <Property Name="MaxyYatzee" />
+      <Property Name="ThreeOfaKind" />
+      <Property Name="Yatzee" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Yatzee.Model.Interface.LargeStraight" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\LargeStraight.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.MaxyYatzee" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\MaxyYatzee.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.SmallStraight" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\SmallStraight.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.ThreeOfaKind" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAQAAAAAAQ=</HashCode>
+      <FileName>Model\Interface\ThreeOfaKind.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Model.Interface.Yatzee" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAEAAAAAAAAIAAAAAAAAAAAAAAAAQAAgAAAQ=</HashCode>
+      <FileName>Model\Interface\Yatzee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IGameRules1" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Yatzee.Program" Collapsed="true">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MenuController" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Yatzee.Model.Interface.IGameRules">
+    <Position X="3.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Model\Interface\IGameRules.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

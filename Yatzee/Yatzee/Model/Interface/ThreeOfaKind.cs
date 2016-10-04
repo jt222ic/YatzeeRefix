@@ -11,6 +11,18 @@ namespace Yatzee.Model.Interface
         int Sum;
         bool m_ThreeOfAKind;
 
+        internal IGameRules IGameRules
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public int DiceScore(List<int> Dice, int PlayerSelectValues)
         {
             Sum = 0;

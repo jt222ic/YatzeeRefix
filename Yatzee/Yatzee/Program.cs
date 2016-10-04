@@ -11,7 +11,18 @@ namespace Yatzee
 {
     class Program
     {
-        
+        internal MenuController MenuController
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         static void Main(string[] args)
         {
             

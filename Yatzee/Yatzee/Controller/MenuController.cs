@@ -13,25 +13,94 @@ namespace Yatzee.Controller
         ViewStatus show;
         Player player;
         List<Player> PlayerList = new List<Player>();
-        Dice roll;
         IReadOnlyCollection<Player> ListOfPlayers;
-        int i;
-        Player currentplayer;
         CurrentPlayer LoadPlayer;
         //  GameController InGameController;
 
         public MenuController()
         {
-            roll = new Dice();
+            
             show = new ViewStatus();
             LoadPlayer = new CurrentPlayer();
             //InGameController = new GameController(PlayerList, player, show);
            // PlayerList.Add(player = new Player("Human"));
         }
 
+        internal GameController GameController
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal CurrentPlayer CurrentPlayer
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Player Player
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal GameController GameController1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        internal CurrentPlayer CurrentPlayer1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public Player Player1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public void Register()
         {
-                  //if place here you can switch Player
+                  
             do
             {
                 try
@@ -102,14 +171,14 @@ namespace Yatzee.Controller
         {
             try
             {
-                ListOfPlayers = DAL.getMemberList();
+                ListOfPlayers = DAL.getMemberList();                    // get the List from model.DAl static  and show it in compactlist of available players
                 show.CompactList(ListOfPlayers);
                 int choice = int.Parse(show.GetInput());
                 if (choice == 0)
                 {
                     return;
                 }
-                choice--;
+                choice--;                                                        // minus 1 because The first player starts in playerlist = 0
                 player = ListOfPlayers.ElementAt(choice);
                 DAL.removeMember(choice);
             }
