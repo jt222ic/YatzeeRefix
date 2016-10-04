@@ -59,29 +59,32 @@ namespace Yatzee.View
                 show.CatchNullArgument();
             }
         }
+
+        private void ChoiceOfRerollMenuHandler(int DiceChoice)
+        {
+
+        }
         public void ChoiceOfReRoll()
         {
-            show.DisplayRoll(game.Dices);
-            try
+            
+            do
             {
-                do
+                try
                 {
-                    
-                    
+                    show.DisplayRoll(game.Dices);
                     string NewReRoll = show.ReturnDicePicks();
                     int DiceChoice = int.Parse(NewReRoll);
 
                     if (DiceChoice == 7)
                     {
                         player = GameChoices(PlayerList, player);
-
                     }
 
                     if (!game.LockDiceToss)
                     {
                         switch (DiceChoice)
                         {
-                          
+
                             case 1:
                                 dicenumber = 0;
                                 game.performReroll(dicenumber, game.Dices, player);
@@ -107,18 +110,17 @@ namespace Yatzee.View
                                 show.DisplayRoll(game.Dices);
                                 show.DisplayReroll(game);
                                 break;
-                            
                         }
                     }
                 }
+                catch
+                {
+                    show.CatchNullArgument();
+                }
+            }
                 while (true);
-            }
-            catch
-            {
-                show.CatchNullArgument();
-               
-            }
         }
+
         public Player GameChoices(List<Player> PlayerList,Player player)
         {
             
