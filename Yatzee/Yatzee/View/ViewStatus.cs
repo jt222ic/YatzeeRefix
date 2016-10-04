@@ -16,29 +16,7 @@ namespace Yatzee.View
         private const char LOWER_KEY = 'w';
         private const char SUBMIT_KEY = 's';
 
-        public Player Player
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
-
-        public Player Player1
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+      
 
         public enum Options
         {

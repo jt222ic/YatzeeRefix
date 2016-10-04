@@ -14,17 +14,7 @@ namespace Yatzee.Model
         List<int> unique;
         List<int> newDices = new List<int>();
 
-        public Player Player
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-
-            set
-            {
-            }
-        }
+    
 
         public List<int> Roll()
         {
